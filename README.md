@@ -1,34 +1,79 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Como começar a desenvolver 🤷‍♂️
 
-## Getting Started
+1º Clone do projeto
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+No seu terminal:
+```
+git clone https://github.com/Juniors-Developers-Group-JDG/Rede-Social-Front-End.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<br>
+<br>
+<br>
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+2º Abrir o projeto clonado no vs code
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Abra a pasta do projeto, que foi clonado (nome da pasta é criado automaticamente pelo git, você pode encontrar-lo como demonstrado abaixo), no seu VS code.
 
-## Learn More
+![Captura de tela 2023-05-24 070240](https://github.com/Juniors-Developers-Group-JDG/Rede-Social-Front-End/assets/61752887/19c2d3ef-23d8-41a1-a5e9-6a8675bdebe8)
 
-To learn more about Next.js, take a look at the following resources:
+<br>
+<br>
+<br>
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3º Abrir terminal na root do projeto
+Abra um terminal na root do projeto (no vs code basta você abrir o terminal, ele já fica na root)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Para ter certeza que você esta na root, veja se o caminho do seu terminal
 
-## Deploy on Vercel
+![Captura de tela 2023-05-24 070833](https://github.com/Juniors-Developers-Group-JDG/Rede-Social-Front-End/assets/61752887/9b64c6c6-2083-464f-ac87-eb74b586df35)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+<br>
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Termina com o nome da pasta criada pelo git clone
+
+![Captura de tela 2023-05-24 070240](https://github.com/Juniors-Developers-Group-JDG/Rede-Social-Front-End/assets/61752887/19c2d3ef-23d8-41a1-a5e9-6a8675bdebe8)
+
+<br>
+<br>
+<br>
+
+4º Instalar dependencias
+Terminal:
+```
+npm i
+```
+
+<br>
+<br>
+<br>
+
+5º Rodar o projeto
+Terminal:
+```
+npm run dev
+```
+
+<br>
+<br>
+<br>
+
+6º Abrir o projeto que esta sendo rodado
+
+<br>
+
+Procure a url do projeto nesse lugar:
+
+![Captura de tela 2023-05-24 071522](https://github.com/Juniors-Developers-Group-JDG/Rede-Social-Front-End/assets/61752887/6e9d594f-c726-4748-8ed2-6019eb14afb5)
+
+<br>
+
+Coloque a url no seu navegador
+
+![Captura de tela 2023-05-24 071721](https://github.com/Juniors-Developers-Group-JDG/Rede-Social-Front-End/assets/61752887/22a7bf90-2d62-429d-a9cd-1ba967560074)
+
+<br>
+<br>
+<br>
+
+7º Comece a desenvolver :)
