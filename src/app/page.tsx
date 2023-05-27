@@ -10,9 +10,6 @@ const Home = () => {
       <Link href="/sign-up" className="p-4">
         SignUp
       </Link>
-      <Link href="/sign" className="p-4">
-        Error
-      </Link>
     </>
   );
 };
