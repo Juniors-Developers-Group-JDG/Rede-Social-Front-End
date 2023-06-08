@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+
 module.exports = {
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -22,7 +23,7 @@ module.exports = {
         'jdg-container-bg': '#1B1F22',
         'jdg-container2-bg': '#15181A',
         'jdg-bg': '#0D0F10',
-        'jdg-text': '#110111',
+        'jdg-text': '#D9D9D9',
       },
     },
   },

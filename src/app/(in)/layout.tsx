@@ -1,5 +1,4 @@
 import { ReactNode } from 'react';
-
 interface InnerLayoutProps {
   children: ReactNode;
 }
