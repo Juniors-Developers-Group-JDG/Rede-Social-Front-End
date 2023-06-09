@@ -17,7 +17,7 @@ const SignIn = () => {
           icon={<RiUserLine size={20} />}
         />
         <Input
-          placeholder={'Digite seu e-mail'}
+          placeholder={'Digite sua senha'}
           icon={<RiLockPasswordLine size={20} />}
         />
         <div className="mb-3 flex w-80 items-center justify-between">
