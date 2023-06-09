@@ -1,6 +1,10 @@
 import Link from 'next/link';
 import React from 'react';
+import { IoLogoGoogle } from 'react-icons/io5';
 import { RiUserLine, RiLockPasswordLine } from 'react-icons/ri';
+
+import Button from '@/components/Button';
+import Input from '@/components/Input';
 
 const SignIn = () => {
   return (
@@ -8,18 +12,14 @@ const SignIn = () => {
       <div className="w-7/12 bg-jdg-200">imagem</div>
       <form className="flex w-5/12 flex-col items-center justify-center">
         <h1 className="mb-2 text-2xl text-jdg-text">Login</h1>
-        <div className="my-3 flex items-center justify-center">
-          <input
-            className=" h-10 w-80 rounded-md bg-jdg-50 p-2 placeholder:text-left"
-            placeholder="Digite seu e-mail"
-          />
-        </div>
-        <div className="mb-1 mt-3 flex items-center justify-center">
-          <input
-            className=" h-10 w-80 rounded-md bg-jdg-50 p-2 placeholder:text-left"
-            placeholder="Digite seu e-mail"
-          />
-        </div>
+        <Input
+          placeholder={'Digite seu e-mail'}
+          icon={<RiUserLine size={20} />}
+        />
+        <Input
+          placeholder={'Digite seu e-mail'}
+          icon={<RiLockPasswordLine size={20} />}
+        />
         <div className="mb-3 flex w-80 items-center justify-between">
           <Link href="/sign-up">
             <span className="text-sm text-jdg-text">Esqueceu a senha?</span>
@@ -29,15 +29,18 @@ const SignIn = () => {
           </Link>
         </div>
 
-        <button className=" h-10 w-80 rounded-md bg-jdg-50 bg-jdg-500 p-2 font-bold text-jdg-text">
-          Entrar
-        </button>
+        <Button text={'Entrar'} />
 
-        <div className="inline-flex w-80 items-center justify-center">
-          <hr className="my-8 h-px w-36 border-0 bg-gray-200 dark:bg-gray-700"></hr>
-          <span className="mx-2 text-jdg-text">ou</span>
-          <hr className="my-8 h-px w-36 border-0 bg-gray-200 dark:bg-gray-700"></hr>
+        <div className="my-3 inline-flex w-80 items-center justify-center">
+          <hr className="my-8 h-px w-36 border-0 bg-jdg-500 "></hr>
+          <span className="mx-2 text-sm text-jdg-text">ou</span>
+          <hr className="my-8 h-px w-36 border-0 bg-jdg-500 "></hr>
         </div>
+
+        <Button
+          text={'Entrar com o Google'}
+          icon={<IoLogoGoogle size={20} />}
+        />
       </form>
     </div>
   );
