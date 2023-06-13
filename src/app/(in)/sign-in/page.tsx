@@ -4,12 +4,13 @@ import { IoLogoGoogle } from 'react-icons/io5';
 import { RiUserLine, RiLockPasswordLine } from 'react-icons/ri';
 
 import Button from '@/components/Button';
+import ImageLogin from '@/components/ImageLogin/page';
 import Input from '@/components/Input';
 
 const SignIn = () => {
   return (
     <div className="flex h-screen bg-jdg-bg">
-      <div className="w-7/12 bg-jdg-200">imagem</div>
+      <ImageLogin />
       <form className="flex w-5/12 flex-col items-center justify-center">
         <h1 className="mb-2 text-2xl text-jdg-text">Login</h1>
         <Input
