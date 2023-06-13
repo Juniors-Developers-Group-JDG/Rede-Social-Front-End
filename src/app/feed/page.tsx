@@ -10,6 +10,7 @@ import dotIcon from '../../assets/dot.svg';
 import heartIcon from '../../assets/heart.svg';
 import personIcon from '../../assets/personIcon.svg';
 import pictureIcon from '../../assets/picture.svg';
+import reactImg from '../../assets/react.png';
 import searchIcon from '../../assets/search.svg';
 import AutosizeTextarea from '../../components/TextArea';
 
@@ -32,9 +33,17 @@ const Feed = () => {
       </header>
 
       <main className="flex flex-row">
-        <aside className="mt-[-64px] flex h-screen w-[94px] flex-col items-center justify-between bg-black-800">
-          <Image src={personIcon} alt="icone representando pessoa" />
-          <Image src={doorIcon} alt="icone representando uma porta para sair" />
+        <aside className="z-[-1] mt-[-64px] flex h-screen w-[94px] flex-col items-center justify-between bg-black-800">
+          <Image
+            className="mt-32"
+            src={personIcon}
+            alt="icone representando pessoa"
+          />
+          <Image
+            className="mb-9"
+            src={doorIcon}
+            alt="icone representando uma porta para sair"
+          />
         </aside>
         <div className="ml-[61px] mt-[47px] flex flex-col gap-[34px]">
           <section className=" w-[485px] bg-black-900 pb-3">
@@ -101,10 +110,109 @@ const Feed = () => {
               </span>
             </div>
           </section>
-          <section className="h-[277px] w-[485px] bg-black-900"></section>
+          <section className="h-fit w-[485px] bg-black-900 pb-4">
+            <div className="flex flex-row">
+              <Image
+                className="ml-7 mt-4 h-[50px] w-[50px] rounded-full"
+                src={userImg}
+                width={50}
+                height={50}
+                alt="Foto do usuário"
+              />
+              <span className="ml-[10px] mt-6 flex flex-col">
+                <div className="flex flex-row gap-1">
+                  <p className="text-base font-medium leading-5">Edward Rell</p>
+                  <span className="flex self-center text-xs font-medium leading-4">
+                    @msFrontRell
+                  </span>
+                </div>
+                <span className="text-xs font-light leading-4 text-blue-500">
+                  Frontend Developer
+                </span>
+              </span>
+              <div className="ml-[108px] mt-6 flex flex-row justify-center gap-2 self-start">
+                <Image src={dotIcon} alt="ponto" />
+                <p>3 minutes</p>
+              </div>
+            </div>
+            <div className="ml-[87px] mr-10 border-b border-t border-blue-800">
+              <p className="mb-[13px] mt-[10px] text-[13px] font-light leading-4 text-text-white">
+                Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
+                Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
+                Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
+                Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
+                Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
+                Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
+                Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum .
+              </p>
+            </div>
+            <div className="ml-[87px] mr-10 mt-3 flex flex-row">
+              <Image src={heartIcon} alt="icone de coração" />
+              <Image
+                className="ml-10 mr-1"
+                src={chatBuble}
+                alt="icone de balão de fala"
+              />
+              <span className="flex flex-row self-center text-[8px] font-medium leading-[10px] text-blue-50">
+                Digite sua opinião
+              </span>
+            </div>
+          </section>
         </div>
         <div className="ml-[26px] mt-[47px]">
-          <section className="h-[667px] w-[485px] bg-black-900"></section>
+          <section className="h-fit w-[485px] bg-black-900 pb-4">
+            <div className="flex flex-row">
+              <Image
+                className="ml-7 mt-4 h-[50px] w-[50px] rounded-full"
+                src={userImg}
+                width={50}
+                height={50}
+                alt="Foto do usuário"
+              />
+              <span className="ml-[10px] mt-6 flex flex-col">
+                <div className="flex flex-row gap-1">
+                  <p className="text-base font-medium leading-5">Edward Rell</p>
+                  <span className="flex self-center text-xs font-medium leading-4">
+                    @msFrontRell
+                  </span>
+                </div>
+                <span className="text-xs font-light leading-4 text-blue-500">
+                  Frontend Developer
+                </span>
+              </span>
+              <div className="ml-[108px] mt-6 flex flex-row justify-center gap-2 self-start">
+                <Image src={dotIcon} alt="ponto" />
+                <p>3 minutes</p>
+              </div>
+            </div>
+            <div className="ml-[87px] mr-10 border-b border-t border-blue-800">
+              <p className="mb-[13px] mt-[10px] text-[13px] font-light leading-4 text-text-white">
+                Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
+                Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
+                Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
+                Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
+                Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
+                Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
+                Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum .
+              </p>
+              <Image
+                src={reactImg}
+                alt="foto com simbolo do react"
+                className="mb-4"
+              />
+            </div>
+            <div className="ml-[87px] mr-10 mt-3 flex flex-row">
+              <Image src={heartIcon} alt="icone de coração" />
+              <Image
+                className="ml-10 mr-1"
+                src={chatBuble}
+                alt="icone de balão de fala"
+              />
+              <span className="flex flex-row self-center text-[8px] font-medium leading-[10px] text-blue-50">
+                Digite sua opinião
+              </span>
+            </div>
+          </section>
         </div>
       </main>
     </div>
