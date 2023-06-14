@@ -17,7 +17,7 @@ import AutosizeTextarea from '../../components/TextArea';
 const Feed = () => {
   return (
     <div>
-      <header className="flex h-16 w-screen flex-row justify-between overflow-x-hidden bg-black-900">
+      <header className="fixed flex h-16 w-screen flex-row justify-between bg-black-900">
         <div className="ml-44 flex">
           <Image src={searchIcon} alt="icone de lupa" />
           <input
@@ -32,20 +32,20 @@ const Feed = () => {
         </div>
       </header>
 
-      <main className="flex flex-row">
-        <aside className="z-[-1] mt-[-64px] flex h-screen w-[94px] flex-col items-center justify-between bg-black-800">
-          <Image
-            className="mt-32"
-            src={personIcon}
-            alt="icone representando pessoa"
-          />
-          <Image
-            className="mb-9"
-            src={doorIcon}
-            alt="icone representando uma porta para sair"
-          />
-        </aside>
-        <div className="ml-[61px] mt-[47px] flex flex-col gap-[34px]">
+      <aside className="fixed z-[-1] flex h-screen w-[94px] flex-col items-center justify-between bg-black-800">
+        <Image
+          className="mt-32"
+          src={personIcon}
+          alt="icone representando pessoa"
+        />
+        <Image
+          className="mb-11"
+          src={doorIcon}
+          alt="icone representando uma porta para sair"
+        />
+      </aside>
+      <main className="ml-[155px] flex flex-row">
+        <div className="mt-[116px] flex flex-col gap-[34px]">
           <section className=" w-[485px] bg-black-900 pb-3">
             <div className="flex h-fit flex-col">
               <AutosizeTextarea></AutosizeTextarea>
@@ -159,7 +159,7 @@ const Feed = () => {
             </div>
           </section>
         </div>
-        <div className="ml-[26px] mt-[47px]">
+        <div className="ml-[26px] mt-[116px]">
           <section className="h-fit w-[485px] bg-black-900 pb-4">
             <div className="flex flex-row">
               <Image
