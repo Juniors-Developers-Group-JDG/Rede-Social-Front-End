@@ -53,7 +53,7 @@ const Feed = () => {
               <Image
                 src={reactImg}
                 alt="foto com simbolo do react"
-                className="mb-4 w-full pr-2"
+                className="mb-4 aspect-video w-5/6 object-cover pr-2 md:w-4/5 lg:w-full"
               />
             </div>
           </Section>
