@@ -4,7 +4,7 @@ import arrowLRIcon from '../../assets/arrowLR.svg';
 import pictureIcon from '../../assets/picture.svg';
 import AutosizeTextarea from './TextArea';
 
-function PostArea() {
+export function PostArea() {
   return (
     <section className="h-fit w-full rounded-md bg-black-900 pb-3 lg:max-w-2xl lg:border-none">
       <div className="flex h-fit flex-col">
@@ -26,5 +26,3 @@ function PostArea() {
     </section>
   );
 }
-
-export default PostArea;
