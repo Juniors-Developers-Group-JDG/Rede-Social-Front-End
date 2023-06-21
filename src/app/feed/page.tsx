@@ -2,63 +2,73 @@ import Image from 'next/image';
 
 import reactImg from '../../assets/react.png';
 import Aside from '../../components/Aside';
-import Header from '../../components/Header';
-import PostArea from '../../components/PostArea';
-import Section from '../../components/Section';
-import SectionHidden from '../../components/SectionHidden';
+import { Header } from '../../components/Header';
+import { Post } from '../../components/Post';
+import { PostArea } from '../../components/PostArea';
 
 const Feed = () => {
   return (
-    <div>
+    <div className="flex max-h-screen min-h-screen flex-col lg:overflow-y-hidden">
       <Header />
 
-      <Aside />
+      <div className="flex flex-1 items-stretch lg:overflow-y-hidden">
+        <Aside />
 
-      <main className="mb-[50px] flex flex-col lg:ml-[155px] lg:flex-row">
-        <div className="mt-[50px] flex flex-col lg:mt-[116px] lg:grid-cols-2 lg:gap-[34px]">
-          <PostArea />
+        <main className="flex flex-1 flex-col gap-y-10 overflow-y-auto px-10 py-24 lg:flex-row lg:justify-center lg:gap-x-10 lg:px-10 lg:py-6">
+          <section className="flex flex-col gap-y-10 lg:gap-y-9">
+            <PostArea />
 
-          <Section>
-            <div>
-              <p className="mb-[13px] mt-[10px] text-[13px] font-light leading-4 text-text-white">
-                Eu estou adorando a nova atualização do react router dom.
-              </p>
-            </div>
-          </Section>
+            <Post
+              author={{ handle: '@johndoe01', name: 'John Doe' }}
+              content={
+                <p>Eu estou adorando a nova atualização do react router dom.</p>
+              }
+              timePostedUtcTimestamp={1687352988}
+            />
 
-          <SectionHidden>
-            <p className="mb-[13px] mt-[10px] text-[13px] font-light leading-4 text-text-white">
-              Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem
-              Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
-              Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem
-              Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
-              Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem
-              Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
-              Lorem Ipsum .
-            </p>
-          </SectionHidden>
-        </div>
-        <div className="flex flex-col lg:ml-[26px] lg:mr-[127px] lg:mt-[116px]">
-          <Section>
-            <div>
-              <p className="mb-[13px] mt-[10px] flex-col text-[13px] font-light leading-4 text-text-white">
-                Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
-                Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
-                Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
-                Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
-                Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
-                Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
-                Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum .
-              </p>
-              <Image
-                src={reactImg}
-                alt="foto com simbolo do react"
-                className="mb-4 aspect-video w-5/6 object-cover pr-2 md:w-4/5 lg:w-full"
-              />
-            </div>
-          </Section>
-        </div>
-      </main>
+            <Post
+              author={{ handle: '@johndoe03', name: 'John Doe' }}
+              content={
+                <p>
+                  Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
+                  Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
+                  Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
+                  Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
+                  Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
+                  Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
+                  Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum .
+                </p>
+              }
+              timePostedUtcTimestamp={1687353088}
+            />
+          </section>
+
+          <section className="flex flex-col">
+            <Post
+              author={{ handle: '@johndoe02', name: 'John Doe' }}
+              content={
+                <>
+                  <p>
+                    Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
+                    Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
+                    Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
+                    Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
+                    Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
+                    Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
+                    Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum .
+                  </p>
+                  <Image
+                    src={reactImg}
+                    alt="foto com simbolo do react"
+                    className="mb-4 aspect-video w-5/6 object-cover pr-2 md:w-4/5 lg:w-full"
+                  />
+                </>
+              }
+              timePostedUtcTimestamp={1687362988}
+            />
+          </section>
+        </main>
+      </div>
     </div>
   );
 };
