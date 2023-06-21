@@ -1,7 +1,7 @@
 import Image from 'next/image';
 
 import reactImg from '../../assets/react.png';
-import Aside from '../../components/Aside';
+import { Aside } from '../../components/Aside';
 import { Header } from '../../components/Header';
 import { Post } from '../../components/Post';
 import { PostArea } from '../../components/PostArea';
