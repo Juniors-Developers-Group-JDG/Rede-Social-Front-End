@@ -6,7 +6,7 @@ import searchIcon from '../../assets/search.svg';
 
 export function Header() {
   return (
-    <header className="lg:bg-black-960 fixed bottom-0 z-10 flex w-screen bg-black-800 py-4 lg:sticky lg:top-0 lg:justify-between lg:px-44 lg:py-2">
+    <header className="lg:bg-black-960 fixed bottom-0 z-10 flex w-screen bg-black-800 py-4 lg:sticky lg:top-0 lg:justify-between lg:bg-black-950 lg:px-44 lg:py-2">
       <div className="hidden items-center lg:flex">
         <Image
           src={searchIcon}
