@@ -4,7 +4,7 @@ import bellIcon from '../../assets/bell.svg';
 import chatIcon from '../../assets/chat.svg';
 import searchIcon from '../../assets/search.svg';
 
-function Header() {
+export function Header() {
   return (
     <header className="fixed bottom-0 flex w-screen bg-black-800 py-4 lg:sticky lg:top-0 lg:justify-between lg:bg-black-950 lg:px-44 lg:py-2">
       <div className="hidden items-center lg:flex">
@@ -48,5 +48,3 @@ function Header() {
     </header>
   );
 }
-
-export default Header;
