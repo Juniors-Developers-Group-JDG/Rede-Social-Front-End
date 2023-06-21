@@ -5,15 +5,19 @@ import personIcon from '../../assets/personIcon.svg';
 
 function Aside() {
   return (
-    <aside className="fixed flex h-[50px] w-screen flex-row items-center justify-between bg-black-800 lg:z-[-1] lg:h-screen lg:w-[94px] lg:flex-col">
+    <aside className="fixed flex w-screen items-center justify-between bg-black-800 px-9 py-4 lg:relative lg:w-fit lg:flex-col lg:justify-between lg:px-9 lg:py-16">
       <Image
-        className="ml-10 lg:ml-0 lg:mt-32"
+        className="h-6 w-6"
         src={personIcon}
+        width={24}
+        height={24}
         alt="icone representando pessoa"
       />
       <Image
-        className="mr-10 lg:mb-11 lg:mr-0"
+        className="h-6 w-6"
         src={doorIcon}
+        width={24}
+        height={24}
         alt="icone representando uma porta para sair"
       />
     </aside>
