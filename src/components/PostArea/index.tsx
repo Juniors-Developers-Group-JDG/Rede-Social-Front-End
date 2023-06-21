@@ -6,7 +6,7 @@ import AutosizeTextarea from './TextArea';
 
 function PostArea() {
   return (
-    <section className="h-fit w-full border-b border-t border-blue-800 bg-black-900 pb-3 lg:w-full lg:border-none">
+    <section className="h-fit w-full rounded-md bg-black-900 pb-3 lg:max-w-2xl lg:border-none">
       <div className="flex h-fit flex-col">
         <AutosizeTextarea />
 
