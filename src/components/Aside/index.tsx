@@ -3,7 +3,7 @@ import Image from 'next/image';
 import doorIcon from '../../assets/door.svg';
 import personIcon from '../../assets/personIcon.svg';
 
-function Aside() {
+export function Aside() {
   return (
     <aside className="fixed flex w-screen items-center justify-between bg-black-800 px-9 py-4 lg:relative lg:w-fit lg:flex-col lg:justify-between lg:px-9 lg:py-16">
       <Image
@@ -23,5 +23,3 @@ function Aside() {
     </aside>
   );
 }
-
-export default Aside;
