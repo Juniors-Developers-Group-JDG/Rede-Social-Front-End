@@ -1,7 +1,4 @@
-import Image from 'next/image';
-
-import arrowLRIcon from '../../assets/arrowLR.svg';
-import pictureIcon from '../../assets/picture.svg';
+import { Code, ImageSquare } from '../../components/PhosphorIcons';
 import AutosizeTextarea from './TextArea';
 
 export function PostArea() {
@@ -11,12 +8,9 @@ export function PostArea() {
         <AutosizeTextarea />
 
         <div className="ml-5 mr-6 mt-10 flex flex-row justify-between">
-          <div className="flex flex-row gap-6">
-            <Image src={arrowLRIcon} alt="setas para esquerda e direita" />
-            <Image
-              src={pictureIcon}
-              alt="icone que representa uma imagem de paisagem"
-            />
+          <div className="flex items-center gap-6">
+            <Code className="h-6 w-6" />
+            <ImageSquare className="h-6 w-6" />
           </div>
           <button className="flex h-9 w-[85px] flex-row justify-center rounded-[5px]  bg-blue-500 pt-1  text-2xl font-normal leading-6 text-blue-50">
             Postar

@@ -3,9 +3,7 @@ import { ptBR } from 'date-fns/locale';
 import Image from 'next/image';
 
 import userImg from '../../assets/avatar_placeholder.svg';
-import chatBuble from '../../assets/chatBuble.svg';
-import dotIcon from '../../assets/dot.svg';
-import heartIcon from '../../assets/heart.svg';
+import { ChatCircle, Circle, Heart } from '../../components/PhosphorIcons';
 
 interface PostProps {
   content: React.ReactNode;
@@ -56,7 +54,7 @@ export function Post({
           </div>
 
           <div className="flex h-fit items-center gap-2">
-            <Image src={dotIcon} alt="ponto" />
+            <Circle weight="fill" className="h-[0.35rem] w-[0.35rem]" />
             <p className="text-[10px] font-medium leading-3 lg:text-xs lg:leading-4">
               {timePostedDistanceToNow}
             </p>
@@ -68,13 +66,9 @@ export function Post({
         </div>
 
         <div className="flex items-center">
-          <Image src={heartIcon} alt="icone de coração" />
+          <Heart weight="bold" className="mr-8" />
           <div className="flex items-center">
-            <Image
-              className="ml-11 mr-[5px]"
-              src={chatBuble}
-              alt="icone de balão de fala"
-            />
+            <ChatCircle weight="fill" className="mr-1" />
             <span className="flex flex-row self-center text-[8px] font-medium leading-[10px] text-blue-50">
               Digite sua opinião
             </span>
