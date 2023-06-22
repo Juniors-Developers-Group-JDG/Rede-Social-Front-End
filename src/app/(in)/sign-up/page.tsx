@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 
 const SignUp = () => {
-  const [waitingCode] = useState(true);
+  const [waitingCode] = useState(false);
 
   return (
     <>
