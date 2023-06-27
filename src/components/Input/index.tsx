@@ -14,11 +14,11 @@ const Input = ({ placeholder, icon }: InputProps) => {
             {icon}
           </i>
         )}
-        <input
-          className=" h-10 w-72 rounded-r-md bg-jdg-component-bg p-2 placeholder:text-left "
-          placeholder={placeholder}
-        />
       </label>
+      <input
+        className=" h-10 w-72 rounded-r-md bg-jdg-component-bg p-2 placeholder:text-left "
+        placeholder={placeholder}
+      />
     </div>
   );
 };
