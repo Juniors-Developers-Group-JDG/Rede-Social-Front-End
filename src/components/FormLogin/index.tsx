@@ -9,12 +9,6 @@ import { Input } from '../Input';
 export const FormLogin = () => {
   return (
     <div className="flex w-full flex-col lg:w-5/12">
-      <div className="relative flex h-14 w-full items-center justify-center bg-jdg-text lg:hidden">
-        <h1 className="absolute inset-x-0  text-center text-3xl font-semibold text-jdg-500">
-          Welcome to Website
-        </h1>
-      </div>
-
       <form className="-mt-10 flex h-screen w-full flex-col items-center justify-center lg:mt-0 ">
         <h1 className="mb-2 text-2xl text-jdg-text">Login</h1>
         <Input
