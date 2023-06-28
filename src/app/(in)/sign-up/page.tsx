@@ -8,7 +8,7 @@ const SignUp = () => {
 
   return (
     <>
-      <div className="flex w-[45%] items-center justify-center bg-[#151819]">
+      <div className="flex w-[45%] items-center justify-center bg-[#151819] max-md:h-full max-md:w-full">
         <div className="flex h-full flex-col items-center">
           <span className="mb-6 mt-[4em] text-[32px] font-medium leading-10 text-[#D9D9D9]">
             Cadastre-se
@@ -61,7 +61,7 @@ const SignUp = () => {
             </>
           ) : (
             <>
-              <p className='text-[#D9D9D9]" mb-6 mt-36 w-[60%] text-[16px] font-medium leading-5'>
+              <p className='text-[#D9D9D9]" max-lg:w3/4 mb-6 mt-36 w-[60%] text-[16px] font-medium leading-5'>
                 Digite o código que enviamos para o seu e-mail cadastrado
               </p>
               <form className="flex flex-col">
