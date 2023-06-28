@@ -3,7 +3,7 @@ import React from 'react';
 
 import ImageLayout from '../../../assets/ImageLayout.svg';
 
-const ImageLogin = () => {
+export const ImageLogin = () => {
   return (
     <div className="hidden w-7/12 bg-jdg-500 lg:flex lg:flex-col">
       <div className="mt-20 flex h-20 w-3/4 items-center justify-center rounded-r-2xl bg-jdg-text xl:mt-40">
@@ -24,5 +24,3 @@ const ImageLogin = () => {
     </div>
   );
 };
-
-export default ImageLogin;

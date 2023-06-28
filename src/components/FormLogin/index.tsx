@@ -3,10 +3,10 @@ import React from 'react';
 import { IoLogoGoogle } from 'react-icons/io5';
 import { RiUserLine, RiLockPasswordLine } from 'react-icons/ri';
 
-import Button from '../Button';
-import Input from '../Input';
+import { Button } from '../Button';
+import { Input } from '../Input';
 
-const FormLogin = () => {
+export const FormLogin = () => {
   return (
     <div className="flex w-full flex-col lg:w-5/12">
       <div className="relative flex h-14 w-full items-center justify-center bg-jdg-text lg:hidden">
@@ -50,5 +50,3 @@ const FormLogin = () => {
     </div>
   );
 };
-
-export default FormLogin;

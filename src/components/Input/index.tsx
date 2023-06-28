@@ -5,7 +5,7 @@ interface InputProps {
   placeholder: string;
 }
 
-const Input = ({ placeholder, icon }: InputProps) => {
+export const Input = ({ placeholder, icon }: InputProps) => {
   return (
     <div className="my-3 flex items-center justify-center ">
       <label className="flex ">
@@ -22,5 +22,3 @@ const Input = ({ placeholder, icon }: InputProps) => {
     </div>
   );
 };
-
-export default Input;
