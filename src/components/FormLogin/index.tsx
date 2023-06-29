@@ -21,10 +21,10 @@ export const FormLogin = () => {
           icon={<Password className="h-5 w-5" />}
         />
         <div className="mb-3 flex w-full items-center justify-between gap-4 text-center">
-          <Link href="/sign-up">
+          <Link href="/">
             <span className="text-sm">Esqueceu a senha?</span>
           </Link>
-          <Link href="/">
+          <Link href="/sign-up">
             <span className="text-sm">Não tem conta?</span>
           </Link>
         </div>
