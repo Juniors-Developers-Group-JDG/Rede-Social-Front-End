@@ -25,10 +25,10 @@ export const FormLogin = () => {
 
       <Button text="Entrar" />
 
-      <div className="my-3 inline-flex w-80 items-center justify-center">
-        <hr className="bg-jdg-500 my-8 h-px w-36 border-0 "></hr>
+      <div className="my-3 inline-flex w-full max-w-xs items-center justify-center">
+        <hr className="my-8 h-px w-36 border-0 bg-blue-500 "></hr>
         <span className="mx-2 text-sm">ou</span>
-        <hr className="bg-jdg-500 my-8 h-px w-36 border-0 "></hr>
+        <hr className="my-8 h-px w-36 border-0 bg-blue-500 "></hr>
       </div>
 
       <Button text="Entrar com o Google" icon={<IoLogoGoogle size={20} />} />
