@@ -28,7 +28,7 @@ export const FormLogin = () => {
           </Link>
         </div>
 
-        <Button text="Entrar" />
+        <Button>Entrar</Button>
 
         <div className="my-3 inline-flex w-full items-center justify-center">
           <hr className="my-8 h-px w-full border-0 bg-blue-500"></hr>
@@ -36,7 +36,7 @@ export const FormLogin = () => {
           <hr className="my-8 h-px w-full border-0 bg-blue-500"></hr>
         </div>
 
-        <Button text="Entrar com o Google" icon={<IoLogoGoogle size={20} />} />
+        <Button icon={<IoLogoGoogle size={20} />}>Entrar com o Google</Button>
       </form>
     </div>
   );
