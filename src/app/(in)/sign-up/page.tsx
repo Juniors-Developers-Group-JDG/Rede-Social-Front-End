@@ -7,7 +7,7 @@ import { Button } from '@/components/Button';
 import { Input } from '@/components/Input';
 
 const SignUp = () => {
-  const [waitingCode] = useState(true);
+  const [waitingCode, setWaitingCode] = useState(false);
 
   return (
     <>
@@ -49,7 +49,7 @@ const SignUp = () => {
                   type="password"
                   placeholder="Confirme sua senha"
                 />
-                <Button>Cadastrar</Button>
+                <Button onClick={() => setWaitingCode(true)}>Cadastrar</Button>
               </form>
               <Link
                 href="/login"
@@ -70,7 +70,9 @@ const SignUp = () => {
                   className="mt-12 w-full text-lg"
                   placeholder="Digite o código"
                 />
-                <Button className="mt-6">Verificar</Button>
+                <Button className="mt-6" onClick={() => setWaitingCode(false)}>
+                  Verificar
+                </Button>
               </form>
             </div>
           )}
