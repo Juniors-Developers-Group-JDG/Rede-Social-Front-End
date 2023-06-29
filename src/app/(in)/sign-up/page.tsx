@@ -52,7 +52,7 @@ const SignUp = () => {
                 <Button onClick={() => setWaitingCode(true)}>Cadastrar</Button>
               </form>
               <Link
-                href="/login"
+                href="/sign-in"
                 className="ml-4 self-start transition-all hover:text-[#EDF5FD]"
               >
                 Já tem conta?
