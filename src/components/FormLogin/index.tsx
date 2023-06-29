@@ -17,6 +17,7 @@ export const FormLogin = () => {
         />
         <Input
           placeholder="Digite sua senha"
+          type="password"
           icon={<Password className="h-5 w-5" />}
         />
         <div className="mb-3 flex w-full items-center justify-between gap-4 text-center">
