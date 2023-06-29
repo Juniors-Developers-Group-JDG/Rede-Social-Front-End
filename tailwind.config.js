@@ -31,6 +31,7 @@ module.exports = {
           white: '#E7ECF1',
         },
         'component-bg': '#E4EEF1',
+        background: '#0D0F10',
       },
     },
   },
