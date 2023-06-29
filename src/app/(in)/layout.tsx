@@ -16,7 +16,7 @@ export default function InnerLayout({ children }: InnerLayoutProps) {
             Welcome to Website
           </h1>
         </div>
-        <div className="mx-8 flex w-fit flex-col 2xl:mx-0">
+        <div className="mx-8 flex flex-col 2xl:mx-0">
           <div className="mt-8 max-w-md text-start">
             <p className="text-base font-normal leading-5">
               It is a long established fact that a reader will be distracted by
