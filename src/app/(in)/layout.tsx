@@ -10,9 +10,9 @@ interface InnerLayoutProps {
 export default function InnerLayout({ children }: InnerLayoutProps) {
   return (
     <section className="flex h-screen max-md:flex-col">
-      <div className="hidden flex-[3] flex-col items-stretch justify-center bg-[#1877DC] pr-10 md:flex 2xl:items-center 2xl:pr-0">
+      <div className="hidden flex-[3] flex-col items-stretch justify-center bg-blue-500 pr-10 md:flex 2xl:items-center 2xl:pr-0">
         <div className="flex h-[70px] w-full min-w-fit max-w-xl items-center justify-center rounded-r-[15px] bg-[#D9D9D9] px-4 2xl:rounded-[15px]">
-          <h1 className="text-[1.75rem] font-semibold text-[#1877DC]  lg:text-[2rem]">
+          <h1 className="text-[1.75rem] font-semibold text-blue-500 lg:text-[2rem]">
             Welcome to Website
           </h1>
         </div>
