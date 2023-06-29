@@ -77,3 +77,12 @@ Coloque a url no seu navegador
 <br>
 
 7º Comece a desenvolver :)
+
+
+To-Do
+
+- [ ] Icons Lib
+
+- [ ] aplicar focus effect do capuano em todos componentes
+
+- [ ] aplicar o focus no componente completo
