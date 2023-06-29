@@ -3,6 +3,8 @@
 import Link from 'next/link';
 import { useState } from 'react';
 
+import { Input } from '@/components/Input';
+
 const SignUp = () => {
   const [waitingCode] = useState(false);
 
@@ -16,41 +18,37 @@ const SignUp = () => {
           {waitingCode === false ? (
             <>
               <form className="flex flex-col items-center gap-y-4">
-                <input
+                <Input
+                  textCentered={true}
                   type="text"
-                  className="h-[40px] w-[300px] rounded-[5px] bg-[#EDF5FD] px-6 text-center text-xl font-normal text-[#111011] placeholder:text-[#706F76] hover:bg-[#FFF]"
                   placeholder="Digite um nome de usuário"
                 />
-                <input
+                <Input
+                  textCentered={true}
                   type="text"
-                  className=" h-[40px] w-[300px] rounded-[5px] bg-[#EDF5FD] px-6 text-center text-xl font-normal text-[#111011] placeholder:text-[#706F76] hover:bg-[#FFF]"
                   placeholder="Digite seu telefone"
                 />
-                <input
+                <Input
+                  textCentered={true}
                   type="text"
-                  className=" h-[40px] w-[300px] rounded-[5px] bg-[#EDF5FD] px-6 text-center text-xl font-normal text-[#111011] placeholder:text-[#706F76] hover:bg-[#FFF]"
                   placeholder="Digite seu e-mail"
                 />
-                <input
+                <Input
+                  textCentered={true}
                   type="text"
-                  className=" h-[40px] w-[300px] rounded-[5px] bg-[#EDF5FD] px-6 text-center text-xl font-normal text-[#111011] placeholder:text-[#706F76] hover:bg-[#FFF]"
                   placeholder="Confirme seu e-mail"
                 />
-                <input
+                <Input
+                  textCentered={true}
                   type="password"
-                  className=" h-[40px] w-[300px] rounded-[5px] bg-[#EDF5FD] px-6 text-center text-xl font-normal text-[#111011] placeholder:text-[#706F76] hover:bg-[#FFF]"
                   placeholder="Digite sua senha"
                 />
-                <input
+                <Input
+                  textCentered={true}
                   type="password"
-                  className=" h-[40px] w-[300px] rounded-[5px] bg-[#EDF5FD] px-6 text-center text-xl font-normal text-[#111011] placeholder:text-[#706F76] hover:bg-[#FFF]"
                   placeholder="Confirme sua senha"
                 />
-                <input
-                  type="submit"
-                  className=" h-[40px] w-[300px] cursor-pointer rounded-[5px] bg-[#1877DC] text-xl font-normal transition-all hover:bg-[#1463B8]"
-                  value="Cadastrar"
-                />
+                <Input textCentered={true} type="submit" value="Cadastrar" />
               </form>
               <Link
                 href="/login"
