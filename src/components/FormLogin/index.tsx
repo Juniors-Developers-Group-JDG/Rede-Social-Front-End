@@ -13,6 +13,7 @@ export const FormLogin = () => {
         <Input
           placeholder="Digite seu e-mail"
           icon={<RiUserLine size={20} />}
+          className="mb-4"
         />
         <Input
           placeholder="Digite sua senha"
