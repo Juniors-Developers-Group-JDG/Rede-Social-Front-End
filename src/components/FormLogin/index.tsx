@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import { IoLogoGoogle } from 'react-icons/io5';
-import { RiLockPasswordLine, RiUserLine } from 'react-icons/ri';
+
+import { GoogleLogo, Password, User } from '@/components/PhosphorIcons';
 
 import { Button } from '../Button';
 import { Input } from '../Input';
@@ -12,12 +12,12 @@ export const FormLogin = () => {
         <h1 className="mb-2 text-2xl">Login</h1>
         <Input
           placeholder="Digite seu e-mail"
-          icon={<RiUserLine size={20} />}
+          icon={<User className="h-5 w-5" />}
           className="mb-4"
         />
         <Input
           placeholder="Digite sua senha"
-          icon={<RiLockPasswordLine size={20} />}
+          icon={<Password className="h-5 w-5" />}
         />
         <div className="mb-3 flex w-full items-center justify-between gap-4 text-center">
           <Link href="/sign-up">
@@ -36,7 +36,9 @@ export const FormLogin = () => {
           <hr className="my-8 h-px w-full border-0 bg-blue-500"></hr>
         </div>
 
-        <Button icon={<IoLogoGoogle size={20} />}>Entrar com o Google</Button>
+        <Button icon={<GoogleLogo className="h-5 w-5" weight="bold" />}>
+          Entrar com o Google
+        </Button>
       </form>
     </div>
   );
