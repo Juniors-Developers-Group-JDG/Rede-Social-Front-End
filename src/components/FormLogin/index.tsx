@@ -7,7 +7,7 @@ import { Input } from '../Input';
 
 export const FormLogin = () => {
   return (
-    <form className="flex w-full flex-col items-center justify-center px-8 md:flex-[2]">
+    <form className="flex h-screen w-full flex-col items-center justify-center px-8 md:flex-[2]">
       <h1 className="mb-2 text-2xl">Login</h1>
       <Input
         placeholder={'Digite seu e-mail'}
