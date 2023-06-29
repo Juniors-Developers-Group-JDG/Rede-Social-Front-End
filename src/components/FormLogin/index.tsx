@@ -14,7 +14,7 @@ export const FormLogin = () => {
         placeholder="Digite sua senha"
         icon={<RiLockPasswordLine size={20} />}
       />
-      <div className="mb-3 flex w-80 items-center justify-between">
+      <div className="mb-3 flex w-full max-w-xs items-center justify-between gap-4 text-center">
         <Link href="/sign-up">
           <span className="text-sm">Esqueceu a senha?</span>
         </Link>
