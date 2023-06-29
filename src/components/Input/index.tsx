@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import React from 'react';
 import { twMerge } from 'tailwind-merge';
 
@@ -7,12 +8,14 @@ interface InputProps
     HTMLInputElement
   > {
   icon?: React.ReactElement;
+  textCentered?: boolean;
 }
 
 export const Input = ({
   placeholder,
   icon,
   className,
+  textCentered,
   ...props
 }: InputProps) => {
   return (
@@ -31,7 +34,10 @@ export const Input = ({
       </label>
       <input
         {...props}
-        className="w-full bg-transparent p-2 text-text-black outline-none placeholder:text-text-black/60 focus:outline-none"
+        className={classNames(
+          'w-full bg-transparent p-2 text-text-black outline-none placeholder:text-text-black/60 focus:outline-none',
+          { 'text-center': textCentered },
+        )}
         placeholder={placeholder}
       />
     </div>
