@@ -8,60 +8,60 @@ const SignUp = () => {
 
   return (
     <>
-      <div className="flex w-[45%] items-center justify-center bg-[#151819] max-md:h-full max-md:w-full">
-        <div className="flex h-full flex-col items-center">
-          <span className="mb-6 mt-[4em] text-[32px] font-medium leading-10 text-[#D9D9D9]">
+      <div className="flex h-full w-full items-center justify-center px-8 md:flex-[2]">
+        <div className="flex h-full flex-col items-center justify-center">
+          <span className="mb-6 text-[2rem] font-medium leading-10">
             Cadastre-se
           </span>
           {waitingCode === false ? (
             <>
-              <form className="flex flex-col items-center">
+              <form className="flex flex-col items-center gap-y-4">
                 <input
                   type="text"
-                  className="my-[.5em] h-[40px] w-[300px] rounded-[5px] bg-[#EDF5FD] px-6 text-center text-xl font-normal text-[#111011] placeholder:text-[#706F76] hover:bg-[#FFF]"
+                  className="h-[40px] w-[300px] rounded-[5px] bg-[#EDF5FD] px-6 text-center text-xl font-normal text-[#111011] placeholder:text-[#706F76] hover:bg-[#FFF]"
                   placeholder="Digite um nome de usuário"
                 />
                 <input
                   type="text"
-                  className="my-[.5em] h-[40px] w-[300px] rounded-[5px] bg-[#EDF5FD] px-6 text-center text-xl font-normal text-[#111011] placeholder:text-[#706F76] hover:bg-[#FFF]"
+                  className=" h-[40px] w-[300px] rounded-[5px] bg-[#EDF5FD] px-6 text-center text-xl font-normal text-[#111011] placeholder:text-[#706F76] hover:bg-[#FFF]"
                   placeholder="Digite seu telefone"
                 />
                 <input
                   type="text"
-                  className="my-[.5em] h-[40px] w-[300px] rounded-[5px] bg-[#EDF5FD] px-6 text-center text-xl font-normal text-[#111011] placeholder:text-[#706F76] hover:bg-[#FFF]"
+                  className=" h-[40px] w-[300px] rounded-[5px] bg-[#EDF5FD] px-6 text-center text-xl font-normal text-[#111011] placeholder:text-[#706F76] hover:bg-[#FFF]"
                   placeholder="Digite seu e-mail"
                 />
                 <input
                   type="text"
-                  className="my-[.5em] h-[40px] w-[300px] rounded-[5px] bg-[#EDF5FD] px-6 text-center text-xl font-normal text-[#111011] placeholder:text-[#706F76] hover:bg-[#FFF]"
+                  className=" h-[40px] w-[300px] rounded-[5px] bg-[#EDF5FD] px-6 text-center text-xl font-normal text-[#111011] placeholder:text-[#706F76] hover:bg-[#FFF]"
                   placeholder="Confirme seu e-mail"
                 />
                 <input
                   type="password"
-                  className="my-[.5em] h-[40px] w-[300px] rounded-[5px] bg-[#EDF5FD] px-6 text-center text-xl font-normal text-[#111011] placeholder:text-[#706F76] hover:bg-[#FFF]"
+                  className=" h-[40px] w-[300px] rounded-[5px] bg-[#EDF5FD] px-6 text-center text-xl font-normal text-[#111011] placeholder:text-[#706F76] hover:bg-[#FFF]"
                   placeholder="Digite sua senha"
                 />
                 <input
                   type="password"
-                  className="my-[.5em] h-[40px] w-[300px] rounded-[5px] bg-[#EDF5FD] px-6 text-center text-xl font-normal text-[#111011] placeholder:text-[#706F76] hover:bg-[#FFF]"
+                  className=" h-[40px] w-[300px] rounded-[5px] bg-[#EDF5FD] px-6 text-center text-xl font-normal text-[#111011] placeholder:text-[#706F76] hover:bg-[#FFF]"
                   placeholder="Confirme sua senha"
                 />
                 <input
                   type="submit"
-                  className="my-[.5em] h-[40px] w-[300px] cursor-pointer rounded-[5px] bg-[#1877DC] text-xl font-normal transition-all hover:bg-[#1463B8]"
+                  className=" h-[40px] w-[300px] cursor-pointer rounded-[5px] bg-[#1877DC] text-xl font-normal transition-all hover:bg-[#1463B8]"
                   value="Cadastrar"
                 />
               </form>
               <Link
                 href="/login"
-                className="mr-[60%] text-[#D9D9D9] transition-all hover:text-[#EDF5FD]"
+                className="mr-[60%]  transition-all hover:text-[#EDF5FD]"
               >
                 Já tem conta?
               </Link>
             </>
           ) : (
             <>
-              <p className='text-[#D9D9D9]" max-lg:w3/4 mb-6 mt-36 w-[60%] text-[16px] font-medium leading-5'>
+              <p className='" max-lg:w3/4 mb-6 mt-36 w-[60%] text-[16px] font-medium leading-5'>
                 Digite o código que enviamos para o seu e-mail cadastrado
               </p>
               <form className="flex flex-col">
