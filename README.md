@@ -82,3 +82,7 @@ Coloque a url no seu navegador
 To-Do
 
 - [ ] Icons Lib
+
+- [ ] aplicar focus effect do capuano em todos componentes
+
+- [ ] aplicar o focus no componente completo
