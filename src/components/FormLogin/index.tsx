@@ -1,4 +1,7 @@
+'use client';
+
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 import { GoogleLogo, Password, User } from '@/components/PhosphorIcons';
 
@@ -6,6 +9,8 @@ import { Button } from '../Button';
 import { Input } from '../Input';
 
 export const FormLogin = () => {
+  const { push } = useRouter();
+
   return (
     <div className="flex h-screen w-full items-center justify-center px-8 md:flex-[2]">
       <form className="flex w-full max-w-xs flex-col items-center">
@@ -29,7 +34,7 @@ export const FormLogin = () => {
           </Link>
         </div>
 
-        <Button>Entrar</Button>
+        <Button onClick={() => push('/feed')}>Entrar</Button>
 
         <div className="my-3 inline-flex w-full items-center justify-center">
           <hr className="my-8 h-px w-full border-0 bg-blue-500"></hr>
@@ -37,7 +42,10 @@ export const FormLogin = () => {
           <hr className="my-8 h-px w-full border-0 bg-blue-500"></hr>
         </div>
 
-        <Button icon={<GoogleLogo className="h-5 w-5" weight="bold" />}>
+        <Button
+          icon={<GoogleLogo className="h-5 w-5" weight="bold" />}
+          onClick={() => push('/feed')}
+        >
           Entrar com o Google
         </Button>
       </form>
