@@ -9,32 +9,32 @@ interface InnerLayoutProps {
 
 export default function InnerLayout({ children }: InnerLayoutProps) {
   return (
-    <>
-      <section className="flex h-screen bg-[#1877DC] max-md:flex-col">
-        <div className="mt-36 w-4/6 text-center max-md:hidden">
-          <div className="relative flex flex-col items-start justify-center">
-            <div className="flex h-[70px] w-3/4 items-center justify-center rounded-r-[15px] bg-[#D9D9D9]">
-              <h1 className="text-[32px] font-semibold text-[#1877DC] max-lg:text-[28px]">
-                Welcome to Website
-              </h1>
-            </div>
-            <div className="absolute left-[5%] top-[100%] flex w-3/4 flex-col items-center">
-              <div className="mt-8 h-52 w-[430px] text-start max-lg:w-full">
-                <p className="text-[16px] font-normal leading-5">
-                  It is a long established fact that a reader will be distracted
-                  by the readable content of a page when looking at its layout.
-                  The point of using Lorem Ipsum is that it has a more-or-less
-                  normal distribution of letters, as opposed to using
-                  &apos;Content here, content here&apos;, making it look like
-                  readable English.
-                </p>
-              </div>
-              <Image src={SignUpImage} alt="Sign Up Image" priority={true} />
-            </div>
-          </div>
+    <section className="flex h-screen max-md:flex-col">
+      <div className="hidden flex-[3] flex-col items-start justify-center bg-[#1877DC] pr-4 text-center md:flex 2xl:items-center">
+        <div className="flex h-[70px] w-3/4 min-w-fit max-w-xl items-center justify-center rounded-r-[15px] bg-[#D9D9D9] px-4 2xl:rounded-[15px]">
+          <h1 className="text-[2rem] font-semibold text-[#1877DC]  max-lg:text-[1.75rem]">
+            Welcome to Website
+          </h1>
         </div>
-        {children}
-      </section>
-    </>
+        <div className="ml-8 flex flex-col">
+          <div className="mt-8 max-w-md text-start">
+            <p className="text-base font-normal leading-5">
+              It is a long established fact that a reader will be distracted by
+              the readable content of a page when looking at its layout. The
+              point of using Lorem Ipsum is that it has a more-or-less normal
+              distribution of letters, as opposed to using &apos;Content here,
+              content here&apos;, making it look like readable English.
+            </p>
+          </div>
+          <Image
+            src={SignUpImage}
+            alt="Sign Up Image"
+            className="mt-7"
+            priority={true}
+          />
+        </div>
+      </div>
+      {children}
+    </section>
   );
 }
