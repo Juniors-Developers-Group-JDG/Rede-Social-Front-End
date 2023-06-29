@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useState } from 'react';
 
+import { Button } from '@/components/Button';
 import { Input } from '@/components/Input';
 
 const SignUp = () => {
@@ -48,7 +49,7 @@ const SignUp = () => {
                   type="password"
                   placeholder="Confirme sua senha"
                 />
-                <Input textCentered={true} type="submit" value="Cadastrar" />
+                <Button>Cadastrar</Button>
               </form>
               <Link
                 href="/login"
@@ -62,18 +63,14 @@ const SignUp = () => {
               <p className="mb-6 mt-36 w-full self-center text-center font-medium">
                 Digite o código que enviamos para o seu e-mail cadastrado
               </p>
-              <form className="flex flex-col">
+              <form className="flex w-full max-w-[18.75rem] flex-col">
                 <Input
                   type="text"
                   textCentered
-                  className="mt-12 w-full max-w-[18.75rem] text-lg"
+                  className="mt-12 w-full text-lg"
                   placeholder="Digite o código"
                 />
-                <input
-                  type="submit"
-                  className="mt-[1.2em] h-[40px] w-[300px] cursor-pointer rounded-[5px] bg-[#1877DC] text-xl font-normal transition-all hover:bg-[#1463B8]"
-                  value="Verificar"
-                />
+                <Button className="mt-6">Verificar</Button>
               </form>
             </div>
           )}
