@@ -1,17 +1,20 @@
 import React from 'react';
+import { twMerge } from 'tailwind-merge';
 
 interface InputProps
-  extends Omit<
-    React.DetailedHTMLProps<
-      React.InputHTMLAttributes<HTMLInputElement>,
-      HTMLInputElement
-    >,
-    'className'
+  extends React.DetailedHTMLProps<
+    React.InputHTMLAttributes<HTMLInputElement>,
+    HTMLInputElement
   > {
   icon?: React.ReactElement;
 }
 
-export const Input = ({ placeholder, icon, ...props }: InputProps) => {
+export const Input = ({
+  placeholder,
+  icon,
+  className,
+  ...props
+}: InputProps) => {
   return (
     <div className="flex h-10 w-full items-center justify-center rounded-md bg-component-bg focus-within:ring focus-within:ring-blue-500">
       <label className="flex ">
@@ -23,7 +26,10 @@ export const Input = ({ placeholder, icon, ...props }: InputProps) => {
       </label>
       <input
         {...props}
-        className="w-full bg-transparent p-2 text-text-black outline-none placeholder:text-text-black/60 focus:outline-none"
+        className={twMerge(
+          'w-full bg-transparent p-2 text-text-black outline-none placeholder:text-text-black/60 focus:outline-none',
+          className,
+        )}
         placeholder={placeholder}
       />
     </div>
