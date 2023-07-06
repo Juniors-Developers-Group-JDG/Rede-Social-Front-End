@@ -17,8 +17,8 @@ export const toastButtonCva = cva('p-1 rounded border-2 leading-none w-fit', {
   variants: {
     type: {
       info: 'border-blue-400 hover:bg-blue-200/25',
-      success: 'border-success-400 hover:bg-success-200/hover:bg-blue-200/25',
-      error: 'border-danger-400 hover:bg-danger-200/hover:bg-blue-200/25',
+      success: 'border-success-400 hover:bg-success-200/25',
+      error: 'border-danger-400 hover:bg-danger-200/25',
     },
   },
 });
