@@ -1,4 +1,7 @@
 import { Inter } from 'next/font/google';
+
+import { ToastsContainer } from '@/components/ToastsContainer';
+import { ToastsProvider } from '@/contexts/toasts';
 import './globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -18,7 +21,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-br">
-      <body className={inter.className}>{children}</body>
+      <ToastsProvider>
+        <body className={inter.className + ' overflow-x-hidden'}>
+          {children}
+          <ToastsContainer />
+        </body>
+      </ToastsProvider>
     </html>
   );
 }
