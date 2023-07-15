@@ -1,15 +1,19 @@
 'use client';
 
 import Link from 'next/link';
-import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
+import { redirect } from 'next/navigation';
+import { ChangeEvent, FormEvent, useEffect, useState, useContext } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 import { Button } from '@/components/Button';
 import { Input } from '@/components/Input';
+import { toastsContext } from '@/contexts/toasts';
 
 const backend = process.env.NEXT_PUBLIC_API_URL as string;
 
 const SignUp = () => {
+  const context = useContext(toastsContext);
+
   type userType = {
     name: string;
     email: string;
@@ -29,7 +33,13 @@ const SignUp = () => {
   const handleSignUp = (e: FormEvent) => {
     e.preventDefault();
     if (!userName || !userEmail || !userPassword) {
-      // toast to inform not filled inputs
+      context.addToast({
+        title: 'Ops!',
+        type: 'info',
+        durationInMs: 5000,
+        closeButton: true,
+        content: 'Verique se tudo está preenchido.',
+      });
       return;
     }
     setUserInfo({
@@ -40,11 +50,11 @@ const SignUp = () => {
       id: uuidv4(),
       created_at: new Date().toISOString(),
     });
-    handleUserCreation(userInfo as userType);
   };
 
   const handleUserCreation = async (data: userType) => {
     try {
+      if (!userInfo) return;
       const createUser = await fetch(`${backend}/users`, {
         method: 'POST',
         headers: {
@@ -54,6 +64,46 @@ const SignUp = () => {
       });
       const result = await createUser.json();
       console.log(result);
+      if (result.status === 'Error') {
+        console.log('Error');
+        console.log(userInfo);
+      } else if (result.error) {
+        context.addToast({
+          title: 'Ops!',
+          type: 'error',
+          durationInMs: 5000,
+          closeButton: true,
+          content: 'Este email já está sendo utilizado!',
+        });
+      } else {
+        context.addToast({
+          title: 'Parabéns!',
+          type: 'success',
+          durationInMs: 5000,
+          closeButton: true,
+          content: 'Sua conta foi criada com sucesso!',
+        });
+        handleLoginNewUser();
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleLoginNewUser = async () => {
+    try {
+      const loginNewUser = await fetch(`${backend}/sessions`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: userEmail,
+          password: userPassword,
+        }),
+      });
+      const result = await loginNewUser.json();
+      document.cookie = `token=${result.token}; max-age=900`;
     } catch (error) {
       console.log(error);
     }
@@ -61,7 +111,10 @@ const SignUp = () => {
 
   useEffect(() => {
     if (!userInfo) return;
-    console.log(userInfo); // test
+    handleUserCreation(userInfo as userType);
+    setTimeout(() => {
+      window.location.pathname = '/feed';
+    }, 5000);
   }, [userInfo]);
 
   // const validateEmail = () => {
