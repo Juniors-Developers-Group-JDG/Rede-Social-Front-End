@@ -1,9 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { redirect } from 'next/navigation';
 import { ChangeEvent, FormEvent, useEffect, useState, useContext } from 'react';
-import { v4 as uuidv4 } from 'uuid';
 
 import { Button } from '@/components/Button';
 import { Input } from '@/components/Input';
@@ -19,9 +17,7 @@ const SignUp = () => {
     email: string;
     password: string;
     roles: string[];
-    id: string;
     avatar?: string;
-    created_at: string;
   };
 
   const [waitingCode, setWaitingCode] = useState(false);
@@ -42,13 +38,24 @@ const SignUp = () => {
       });
       return;
     }
+    const regex =
+      /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?).*$/;
+    const isEmailValid = regex.test(userEmail);
+    if (!isEmailValid) {
+      context.addToast({
+        title: 'Email inválido!',
+        type: 'info',
+        durationInMs: 5000,
+        closeButton: true,
+        content: 'Coloque um email válido!',
+      });
+      return;
+    }
     setUserInfo({
       name: userName,
       email: userEmail,
       password: userPassword,
       roles: ['a37d0151-1721-4bb4-b3b3-154e7e3f76aa'],
-      id: uuidv4(),
-      created_at: new Date().toISOString(),
     });
   };
 
@@ -117,11 +124,6 @@ const SignUp = () => {
     }, 5000);
   }, [userInfo]);
 
-  // const validateEmail = () => {
-  //   const regex =
-  //     /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
-  // };
-
   return (
     <>
       <div className="flex h-full w-full items-center justify-center px-8 md:flex-[2]">
@@ -181,7 +183,7 @@ const SignUp = () => {
                   className="mt-12 w-full text-lg"
                   placeholder="Digite o código"
                 />
-                {/* <Button className="mt-6" onClick={() => setWaitingCode(false)}> */}
+                {/* <Button className="mt-6" onClick={() => setWaitingCode(false)}>Verificar</Button> */}
                 <Button className="mt-6">Verificar</Button>
               </form>
             </div>
