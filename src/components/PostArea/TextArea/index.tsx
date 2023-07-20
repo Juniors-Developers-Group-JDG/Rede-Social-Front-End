@@ -1,7 +1,12 @@
 'use client';
 import React, { useEffect } from 'react';
 
-function AutosizeTextarea() {
+interface AutosizeTextareaProps {
+  setPostText: (text: string) => void;
+  value: string;
+}
+
+function AutosizeTextarea({ setPostText, value }: AutosizeTextareaProps) {
   useEffect(() => {
     const resize = (textElement: HTMLTextAreaElement) => {
       textElement.style.height = 'auto';
@@ -15,6 +20,7 @@ function AutosizeTextarea() {
         resize(textElement);
         textElement.addEventListener('input', function () {
           resize(this);
+          setPostText(this.value);
         });
       }
     });
@@ -32,6 +38,7 @@ function AutosizeTextarea() {
 
   return (
     <textarea
+      value={value}
       placeholder="Qual a ideia de hoje?"
       className="autosize ml-5 mr-5 mt-4 h-fit flex-grow resize-none whitespace-pre-wrap bg-transparent text-blue-50 placeholder-blue-50"
     />

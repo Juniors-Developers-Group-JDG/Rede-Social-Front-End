@@ -29,7 +29,7 @@ export function Post({
   );
 
   return (
-    <section className="flex h-fit w-full rounded-md bg-black-900 px-7 py-4 lg:max-w-2xl lg:border-none">
+    <section className="flex h-fit w-full rounded-md bg-black-900 px-7 py-4 lg:w-[40vw] lg:border-none">
       <Image
         className="mr-4 h-8 w-8 rounded-full lg:h-12 lg:w-12"
         src={avatarUrl ?? userImg}
