@@ -26,7 +26,7 @@ export const FormLogin = () => {
           icon={<Password className="h-5 w-5" />}
         />
         <div className="mb-3 flex w-full items-center justify-between gap-4 text-center">
-          <Link href="/">
+          <Link href="/forgot">
             <span className="text-sm">Esqueceu a senha?</span>
           </Link>
           <Link href="/sign-up">
