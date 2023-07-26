@@ -5,16 +5,18 @@ import { useState } from 'react';
 
 import { createCookie } from '@/app/actions';
 
+// PARA ENTENDER PORQUE TUDO RELACIONADO A COOKIE VEM COM "rede-social." ANTES. VERIFIQUE O ARQUIVO DE ONDE VEM OS MÉTODOS DOS COOKIES @/app/actions
+
 export default function CookieExampleOut() {
-  const [inputUserNameValue, setInputUserNameValue] = useState('');
+  const [inputUserNameValue, setInputUserNameValue] = useState(''); // Estado que armazena o valor do input userName
 
   const { push } = useRouter();
 
   async function handleSignIn() {
     if (inputUserNameValue.length > 0) {
-      await createCookie('user.name', inputUserNameValue);
+      await createCookie('user.name', inputUserNameValue); // Cria um cookie com o nome "rede-social.user.name" com o valor do estado inputUserNameValue usando a server action createCookie
 
-      push('/examples/cookies/in');
+      push('/examples/cookies/in'); // Depois de criar o cookie redireciona o usuário para "dentro" da aplicação
 
       return;
     }
