@@ -1,43 +1,70 @@
 'use client';
-
+import Cookies from 'js-cookie';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { useState, useContext } from 'react';
 
 import { GoogleLogo, Password, User } from '@/components/PhosphorIcons';
-import { fetcher } from '@/utils/swrFetcher';
+import { toastsContext } from '@/contexts/toasts';
 
 import { Button } from '../Button';
 import { Input } from '../Input';
-import { useState } from 'react';
 
 export const FormLogin = () => {
   const { push } = useRouter();
+  const context = useContext(toastsContext);
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleEmailChange = event => {
+  const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);
   };
 
-  const handlePasswordChange = event => {
+  const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(event.target.value);
   };
 
-  async function handleFormSubmit(event) {
+  async function handleFormSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const { user } = await fetch(
-      'https://back-social-media-production.up.railway.app/sessions',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email, password }),
-      },
-    );
 
-    console.log(user);
+    try {
+      const response = await fetch(
+        'https://social-media-back-end.up.railway.app/sessions',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ email, password }),
+        },
+      );
+
+      if (response.ok) {
+        const { user } = await response.json();
+        Cookies.set('user', JSON.stringify(user));
+        Cookies.set('email', email);
+        push('/feed');
+      } else {
+        context.addToast({
+          title: 'Erro ao fazer o Login!',
+          type: 'error',
+          durationInMs: 5000,
+          closeButton: true,
+          content: 'Usuário ou senha incorretos.',
+        });
+        console.error('Login failed');
+      }
+    } catch (error) {
+      context.addToast({
+        title: 'Erro ao logar!',
+        type: 'error',
+        durationInMs: 5000,
+        closeButton: true,
+        content: 'Tente novamente.',
+      });
+      console.error('An error occurred:', error);
+    }
   }
 
   return (
@@ -70,7 +97,7 @@ export const FormLogin = () => {
           </Link>
         </div>
 
-        <Button onClick={() => {}}>Entrar</Button>
+        <Button>Entrar</Button>
 
         <div className="my-3 inline-flex w-full items-center justify-center">
           <hr className="my-8 h-px w-full border-0 bg-blue-500"></hr>
