@@ -14,8 +14,8 @@ export function ToastsContainer() {
     <Toast.Provider swipeDirection="left">
       {toasts.map(({ type, id, durationInMs, title, content, closeButton }) => (
         <Toast.Root key={id} duration={durationInMs} asChild>
-          <section className={toastCva({ type })}>
-            <section className="z-[100] flex w-full flex-col">
+          <section className={toastCva({ type })} style={{ zIndex: 100 }}>
+            <section className="flex w-full flex-col">
               <Toast.Title asChild>
                 <h3 className="text-lg font-medium">{title}</h3>
               </Toast.Title>

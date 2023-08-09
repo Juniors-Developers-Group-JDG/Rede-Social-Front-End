@@ -1,4 +1,4 @@
-import { formatDistance, fromUnixTime } from 'date-fns';
+import { formatDistanceToNow } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 import Image from 'next/image';
 
@@ -20,12 +20,9 @@ export function Post({
   author: { avatarUrl, handle, name },
   timePostedUtcTimestamp,
 }: PostProps) {
-  const timePostedDistanceToNow = formatDistance(
-    new Date(),
-    fromUnixTime(timePostedUtcTimestamp),
-    {
-      locale: ptBR,
-    },
+  const timePostedDistanceToNow = formatDistanceToNow(
+    new Date(timePostedUtcTimestamp),
+    { locale: ptBR, addSuffix: true },
   );
 
   return (
@@ -61,7 +58,10 @@ export function Post({
           </div>
         </div>
 
-        <div className="mb-4 mt-1 flex-col border-b border-t border-blue-800 px-3 py-[0.625rem] text-sm font-light leading-4 text-text-white">
+        <div
+          style={{ wordBreak: 'break-word' }}
+          className="mb-4 mt-1 flex-col break-words border-b border-t border-blue-800 px-3 py-[0.625rem] text-sm font-light leading-4 text-text-white"
+        >
           {content}
         </div>
 

@@ -22,7 +22,7 @@ const Feed = () => {
     async function fetchPosts() {
       try {
         const response = await fetch(
-          'https://back-social-media-production.up.railway.app/posts',
+          'https://social-media-back-end.up.railway.app/posts',
           {
             method: 'GET',
             headers: {
@@ -64,9 +64,8 @@ const Feed = () => {
                   key={String(post.id)}
                   author={{ handle: '@johndoe01', name: 'John Doe' }}
                   content={<p>{post.content}</p>}
-                  timePostedUtcTimestamp={
-                    post.created_at ? Date.parse(post.created_at) : 1687352988
-                  }
+                  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                  timePostedUtcTimestamp={Date.parse(post.created_at!)}
                 />
               ))}
           </section>
