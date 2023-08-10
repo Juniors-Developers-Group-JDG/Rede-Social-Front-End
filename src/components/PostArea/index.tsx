@@ -11,6 +11,10 @@ export function PostArea() {
   const context = useContext(toastsContext);
   const [postText, setPostText] = useState('');
 
+  function handleAlert() {
+    alert('Aguarde novas funcionalidades em futuras versoes');
+  }
+
   async function handlePost() {
     if (!postText) {
       return;
@@ -74,8 +78,11 @@ export function PostArea() {
 
         <div className="ml-5 mr-6 mt-10 flex flex-row justify-between">
           <div className="flex items-center gap-6">
-            <Code className="h-6 w-6" />
-            <ImageSquare className="h-6 w-6" />
+            <Code onClick={handleAlert} className="h-6 w-6 cursor-pointer" />
+            <ImageSquare
+              onClick={handleAlert}
+              className="h-6 w-6 cursor-pointer"
+            />
           </div>
           <button
             onClick={handlePost}

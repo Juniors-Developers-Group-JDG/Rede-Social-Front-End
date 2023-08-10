@@ -1,6 +1,8 @@
 'use client';
 
+import Cookies from 'js-cookie';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
 
 import reactImg from '../../assets/react.png';
@@ -16,7 +18,9 @@ interface postGet {
 }
 
 const Feed = () => {
+  const { push } = useRouter();
   const [posts, setPosts] = useState<postGet[]>([]);
+  const [searchText, setSearchText] = useState('');
 
   useEffect(() => {
     async function fetchPosts() {
@@ -48,9 +52,16 @@ const Feed = () => {
     return () => clearInterval(intervalId);
   }, []);
 
+  useEffect(() => {
+    const userCookie = Cookies.get('user');
+    if (!userCookie) {
+      push('/sign-in');
+    }
+  }, []);
+
   return (
     <div className="flex max-h-screen min-h-screen flex-col lg:overflow-y-hidden">
-      <Header />
+      <Header onSearch={text => setSearchText(text)} />
 
       <div className="flex flex-1 items-stretch lg:overflow-y-hidden">
         <Aside />
@@ -59,15 +70,21 @@ const Feed = () => {
           <section className="flex flex-col gap-y-10 lg:gap-y-9">
             <PostArea />
             {posts &&
-              posts.map(post => (
-                <Post
-                  key={String(post.id)}
-                  author={{ handle: '@johndoe01', name: 'John Doe' }}
-                  content={<p>{post.content}</p>}
-                  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-                  timePostedUtcTimestamp={Date.parse(post.created_at!)}
-                />
-              ))}
+              posts
+                .filter(posts =>
+                  posts.content
+                    .toLowerCase()
+                    .includes(searchText.toLowerCase()),
+                )
+                .map(post => (
+                  <Post
+                    key={String(post.id)}
+                    author={{ handle: '@johndoe01', name: 'John Doe' }}
+                    content={<p>{post.content}</p>}
+                    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                    timePostedUtcTimestamp={Date.parse(post.created_at!)}
+                  />
+                ))}
           </section>
         </main>
       </div>
