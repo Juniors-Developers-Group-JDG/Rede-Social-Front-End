@@ -2,19 +2,19 @@
 
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 
 import { createCookie } from '@/app/actions';
 import { GoogleLogo, Password, User } from '@/components/PhosphorIcons';
-import { toastsContext } from '@/contexts/toasts';
 import useGoogleLogin from '@/hooks/useGoogleLogin';
+import { useToasts } from '@/hooks/useToast';
 
 import { Button } from '../Button';
 import { Input } from '../Input';
 
 export const FormLogin = () => {
   const router = useRouter();
-  const context = useContext(toastsContext);
+  const { addToast } = useToasts();
 
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
@@ -40,7 +40,7 @@ export const FormLogin = () => {
     }
 
     if (!email || !password) {
-      context.addToast({
+      addToast({
         title: 'Campos vazios!',
         type: 'error',
         durationInMs: 5000,
@@ -68,7 +68,7 @@ export const FormLogin = () => {
         await createCookie('email', email);
         router.push('/feed'); // Redirecionar usando router.push
       } else {
-        context.addToast({
+        addToast({
           title: 'Erro ao fazer o Login!',
           type: 'error',
           durationInMs: 5000,
@@ -78,7 +78,7 @@ export const FormLogin = () => {
         console.error('Login failed');
       }
     } catch (error) {
-      context.addToast({
+      addToast({
         title: 'Erro ao logar!',
         type: 'error',
         durationInMs: 5000,
