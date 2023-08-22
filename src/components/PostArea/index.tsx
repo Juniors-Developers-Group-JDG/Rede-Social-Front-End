@@ -20,7 +20,6 @@ export function PostArea() {
       return;
     }
     const postData = {
-      title: 'teste com Juan',
       content: postText,
       midia: 'string',
       user_id: '42230888-d4cc-40cb-b2f1-ef74836b2af0',
