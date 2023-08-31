@@ -2,21 +2,26 @@
 
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 
 import { createCookie } from '@/app/actions';
 import { GoogleLogo, Password, User } from '@/components/PhosphorIcons';
-import { toastsContext } from '@/contexts/toasts';
+import useGoogleLogin from '@/hooks/useGoogleLogin';
+import { useToasts } from '@/hooks/useToast';
 
 import { Button } from '../Button';
 import { Input } from '../Input';
 
 export const FormLogin = () => {
-  const { push } = useRouter();
-  const context = useContext(toastsContext);
+  const router = useRouter();
+  const { addToast } = useToasts();
 
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
+  const [isLoggingInWithGoogle, setIsLoggingInWithGoogle] =
+    useState<boolean>(false);
+
+  const { googleLogin } = useGoogleLogin();
 
   const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);
@@ -28,6 +33,23 @@ export const FormLogin = () => {
 
   async function handleFormSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+
+    if (isLoggingInWithGoogle) {
+      googleLogin();
+      return;
+    }
+
+    if (!email || !password) {
+      addToast({
+        title: 'Campos vazios!',
+        type: 'error',
+        durationInMs: 5000,
+        closeButton: true,
+        content: 'Preencha os campos de email e senha.',
+      });
+      return;
+    }
+
     try {
       const response = await fetch(
         'https://social-media-back-end.up.railway.app/sessions',
@@ -44,9 +66,9 @@ export const FormLogin = () => {
         const { user } = await response.json();
         await createCookie('user', JSON.stringify(user));
         await createCookie('email', email);
-        push('/feed');
+        router.push('/feed'); // Redirecionar usando router.push
       } else {
-        context.addToast({
+        addToast({
           title: 'Erro ao fazer o Login!',
           type: 'error',
           durationInMs: 5000,
@@ -56,7 +78,7 @@ export const FormLogin = () => {
         console.error('Login failed');
       }
     } catch (error) {
-      context.addToast({
+      addToast({
         title: 'Erro ao logar!',
         type: 'error',
         durationInMs: 5000,
@@ -66,6 +88,11 @@ export const FormLogin = () => {
       console.error('An error occurred:', error);
     }
   }
+
+  const handleGoogleLogin = async () => {
+    setIsLoggingInWithGoogle(true);
+    await googleLogin();
+  };
 
   return (
     <div className="flex h-screen w-full items-center justify-center px-8 md:flex-[2]">
@@ -105,7 +132,10 @@ export const FormLogin = () => {
           <hr className="my-8 h-px w-full border-0 bg-blue-500"></hr>
         </div>
 
-        <Button icon={<GoogleLogo className="h-5 w-5" weight="bold" />}>
+        <Button
+          icon={<GoogleLogo className="h-5 w-5" weight="bold" />}
+          onClick={handleGoogleLogin}
+        >
           Entrar com o Google
         </Button>
       </form>
