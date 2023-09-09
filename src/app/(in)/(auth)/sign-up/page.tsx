@@ -3,14 +3,13 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import zod from 'zod';
 
 import { createCookie } from '@/app/actions';
 import { Button } from '@/components/Button';
 import { Input } from '@/components/Input';
-import { toastsContext } from '@/contexts/toasts';
+import { useToasts } from '@/hooks/useToast';
 
 const backendURL = process.env.NEXT_PUBLIC_API_URL as string;
 
@@ -35,7 +34,7 @@ const SignUp = () => {
 
   const { push } = useRouter();
 
-  const context = useContext(toastsContext);
+  const { addToast } = useToasts();
 
   const handleSignUpFormSubmit = async (formData: SignUpFormData) => {
     try {
@@ -53,7 +52,7 @@ const SignUp = () => {
         throw new Error(message);
       }
 
-      context.addToast({
+      addToast({
         title: 'Parabéns!',
         type: 'success',
         durationInMs: 5000,
@@ -67,7 +66,7 @@ const SignUp = () => {
 
       if (error instanceof Error) {
         if (error.message === 'User already Exists') {
-          context.addToast({
+          addToast({
             title: 'Ops!',
             type: 'error',
             durationInMs: 5000,
@@ -78,7 +77,7 @@ const SignUp = () => {
           return;
         }
 
-        context.addToast({
+        addToast({
           title: 'Ops!',
           type: 'error',
           durationInMs: 5000,
