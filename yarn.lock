@@ -2722,6 +2722,11 @@ path-type@^4.0.0:
   resolved "https://registry.npmjs.org/path-type/-/path-type-4.0.0.tgz"
   integrity sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw==
 
+phosphor-react-sc@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npmjs.org/phosphor-react-sc/-/phosphor-react-sc-1.0.0.tgz"
+  integrity sha512-iJIUoglY+63AFRyb7nDD/QYeVDhGWbZuEGhPJ0EoLLAhwP4LUtEbT/JHcImkYNNNa36kFcNLwuMcrIAQ/QGMCQ==
+
 picocolors@^1.0.0:
   version "1.0.0"
   resolved "https://registry.npmjs.org/picocolors/-/picocolors-1.0.0.tgz"
