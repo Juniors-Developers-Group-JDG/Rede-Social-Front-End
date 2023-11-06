@@ -7,25 +7,23 @@ interface InnerLayoutProps {
   children: ReactNode;
 }
 
-export default function InnerLayout({ children }: InnerLayoutProps) {
+export default function InnerAuthLayout({ children }: InnerLayoutProps) {
   return (
     <section className="flex h-screen max-md:flex-col">
       <div className="hidden flex-[3] flex-col justify-center bg-blue-500 pr-10 md:flex 2xl:items-center 2xl:pr-0">
         <div className="flex w-full max-w-xl flex-col items-center">
           <div className="flex h-[70px] w-full min-w-fit  items-center justify-center rounded-r-[15px] bg-component-bg px-4 2xl:rounded-[15px]">
             <h1 className="text-[1.75rem] font-semibold text-blue-500 lg:text-[2rem]">
-              Welcome to Website
+              TechSphere diz olá a você 👋
             </h1>
           </div>
           <div className="mx-8 flex flex-col 2xl:mx-0">
             <div className="mt-8 max-w-md text-start">
               <p className="text-base font-normal leading-5">
-                It is a long established fact that a reader will be distracted
-                by the readable content of a page when looking at its layout.
-                The point of using Lorem Ipsum is that it has a more-or-less
-                normal distribution of letters, as opposed to using
-                &apos;Content here, content here&apos;, making it look like
-                readable English.
+                TechSphere é uma rede social inovadora focada em comunidades da
+                área de tecnologia. Ela serve como um hub para profissionais,
+                entusiastas e estudantes de tecnologia se conectarem,
+                compartilharem ideias e colaborarem em projetos.
               </p>
             </div>
             <div className="mt-7 w-full pr-12 ">
