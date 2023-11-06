@@ -52,7 +52,7 @@ export const FormLogin = () => {
 
     try {
       const response = await fetch(
-        'https://social-media-back-end.up.railway.app/sessions',
+        `${process.env.NEXT_PUBLIC_API_URL}/sessions`,
         {
           method: 'POST',
           headers: {
@@ -66,7 +66,7 @@ export const FormLogin = () => {
         const { user } = await response.json();
         await createCookie('user', JSON.stringify(user));
         await createCookie('email', email);
-        router.push('/feed'); // Redirecionar usando router.push
+        router.push('/feed');
       } else {
         addToast({
           title: 'Erro ao fazer o Login!',
