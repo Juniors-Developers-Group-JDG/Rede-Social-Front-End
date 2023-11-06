@@ -1,15 +1,13 @@
 'use client';
 
 import Cookies from 'js-cookie';
-import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
-import reactImg from '../../assets/react.png';
-import { Aside } from '../../components/Aside';
-import { Header } from '../../components/Header';
-import { Post } from '../../components/Post';
-import { PostArea } from '../../components/PostArea';
+import { Aside } from '../../../components/Aside';
+import { Header } from '../../../components/Header';
+import { Post } from '../../../components/Post';
+import { PostArea } from '../../../components/PostArea';
 
 interface postGet {
   id: string;
