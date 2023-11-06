@@ -4,10 +4,10 @@ import Cookies from 'js-cookie';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
-import { Aside } from '../../../components/Aside';
-import { Header } from '../../../components/Header';
-import { Post } from '../../../components/Post';
-import { PostArea } from '../../../components/PostArea';
+import { Aside } from '@/components/Aside';
+import { Header } from '@/components/Header';
+import { Post } from '@/components/Post';
+import { PostArea } from '@/components/PostArea';
 
 interface postGet {
   id: string;
