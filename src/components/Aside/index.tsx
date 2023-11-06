@@ -1,14 +1,16 @@
-import Cookies from 'js-cookie';
+'use client';
+
+import { SignOut, UserCircle } from '@phosphor-icons/react';
 import { useRouter } from 'next/navigation';
 
-import { SignOut, UserCircle } from '../../components/PhosphorIcons';
+import { deleteCookie } from '@/app/actions';
 
 export function Aside() {
   const { push } = useRouter();
 
-  const handleSignOut = () => {
-    Cookies.remove('user');
-    Cookies.remove('email');
+  const handleSignOut = async () => {
+    await deleteCookie('token');
+
     push('/sign-in');
   };
 
