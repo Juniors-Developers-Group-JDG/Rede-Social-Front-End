@@ -30,6 +30,7 @@ const SignUp = () => {
     register,
     handleSubmit,
     formState: { isSubmitting },
+    reset,
   } = formMethods;
 
   const { push } = useRouter();
@@ -61,6 +62,8 @@ const SignUp = () => {
       });
 
       await handleLoginNewUser(formData.email, formData.password);
+
+      reset();
     } catch (error) {
       console.error({ error });
 
@@ -141,7 +144,7 @@ const SignUp = () => {
                 placeholder="Digite sua senha"
                 {...register('password')}
               />
-              <Button disabled={isSubmitting}>Cadastrar</Button>
+              <Button isProcessing={isSubmitting}>Cadastrar</Button>
             </form>
             <Link
               href="/sign-in"
