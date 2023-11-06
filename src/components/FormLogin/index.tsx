@@ -63,9 +63,8 @@ export const FormLogin = () => {
       );
 
       if (response.ok) {
-        const { user } = await response.json();
-        await createCookie('user', JSON.stringify(user));
-        await createCookie('email', email);
+        const { token } = await response.json();
+        await createCookie('token', token);
         router.push('/feed');
       } else {
         addToast({
