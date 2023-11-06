@@ -1,7 +1,5 @@
 'use client';
 
-import Cookies from 'js-cookie';
-import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 import { Aside } from '@/components/Aside';
@@ -16,7 +14,6 @@ interface postGet {
 }
 
 const Feed = () => {
-  const { push } = useRouter();
   const [posts, setPosts] = useState<postGet[]>([]);
   const [searchText, setSearchText] = useState('');
 
@@ -48,13 +45,6 @@ const Feed = () => {
     const intervalId = setInterval(fetchPosts, pollingInterval);
 
     return () => clearInterval(intervalId);
-  }, []);
-
-  useEffect(() => {
-    const userCookie = Cookies.get('user');
-    if (!userCookie) {
-      push('/sign-in');
-    }
   }, []);
 
   return (
