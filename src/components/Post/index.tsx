@@ -3,12 +3,7 @@ import { ptBR } from 'date-fns/locale';
 import Image from 'next/image';
 
 import userImg from '../../assets/avatar_placeholder.svg';
-import {
-  ChatCircle,
-  Circle,
-  Heart,
-  XSquare,
-} from '../../components/PhosphorIcons';
+import { ChatCircle, Circle, Heart } from '../../components/PhosphorIcons';
 
 interface PostProps {
   content: React.ReactNode;
@@ -53,10 +48,6 @@ export function Post({
                 {handle}
               </span>
             </div>
-
-            <span className="text-xs font-light leading-4 text-blue-500">
-              Frontend Developer
-            </span>
           </div>
 
           <div className="flex h-fit items-center gap-2">
@@ -81,7 +72,11 @@ export function Post({
             className="mr-8 cursor-pointer"
           />
           <div className="flex items-center">
-            <ChatCircle onClick={handleAlert} weight="fill" className="mr-1 cursor-pointer" />
+            <ChatCircle
+              onClick={handleAlert}
+              weight="fill"
+              className="mr-1 cursor-pointer"
+            />
             <span className="flex flex-row self-center text-[8px] font-medium leading-[10px] text-blue-50">
               Digite sua opinião
             </span>
