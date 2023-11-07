@@ -6,16 +6,23 @@ export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
   icon?: React.ReactElement;
   textCentered?: boolean;
+  wrapperProps?: Omit<React.HTMLAttributes<HTMLDivElement>, 'className'> & {
+    [key: `data-${string}`]: unknown;
+  };
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ placeholder, icon, className, textCentered, ...props }, ref) => {
+  (
+    { placeholder, icon, className, textCentered, wrapperProps, ...props },
+    ref,
+  ) => {
     return (
       <div
         className={twMerge(
-          'flex h-10 w-full items-center justify-center rounded-md bg-component-bg focus-within:ring focus-within:ring-blue-500',
+          'flex h-10 w-full items-center justify-center rounded-md border-2 border-transparent bg-component-bg focus-within:ring focus-within:ring-blue-500',
           className,
         )}
+        {...wrapperProps}
       >
         <label className="flex ">
           {icon && (
