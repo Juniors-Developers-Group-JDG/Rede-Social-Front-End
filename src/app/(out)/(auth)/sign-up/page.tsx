@@ -110,7 +110,7 @@ const SignUp = () => {
 
       push('/feed');
     } catch (error) {
-      console.log({ error });
+      console.error({ error });
     }
   };
 
