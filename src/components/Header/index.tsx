@@ -1,14 +1,16 @@
+'use client';
+
+import { usePost } from '@/hooks/usePost';
+
 import {
   BellSimple,
   Chat,
   MagnifyingGlass,
 } from '../../components/PhosphorIcons';
 
-interface HeaderProps {
-  onSearch: (searchText: string) => void;
-}
+export function Header() {
+  const { setPostQuery } = usePost();
 
-export function Header({ onSearch }: HeaderProps) {
   function handleAlert() {
     alert('Aguarde novas funcionalidades em futuras versoes');
   }
@@ -21,7 +23,7 @@ export function Header({ onSearch }: HeaderProps) {
           type="text"
           placeholder="Pesquisar"
           className="ml-4 bg-transparent text-xl placeholder-blue-500"
-          onChange={event => onSearch(event.target.value)}
+          onChange={event => setPostQuery(event.target.value)}
         />
       </div>
 
