@@ -17,7 +17,7 @@ const NotFound = () => {
             </h1>
           </div>
           <div className="flex w-[85%] flex-col items-center max-lg:w-full">
-            <div className="mt-8 h-52 w-[430px] text-start max-md:mb-[0.5em] max-md:flex max-md:h-28 max-md:w-full max-md:justify-center max-md:text-center">
+            <div className="mt-8 w-[430px] text-start max-md:mb-[0.5em] max-md:flex max-md:h-28 max-md:w-full max-md:justify-center max-md:text-center">
               <p className="text-[32px] font-semibold leading-10  max-lg:text-[26px] max-md:w-3/4">
                 Desculpe, infelizmente não temos essa página
               </p>
@@ -37,10 +37,10 @@ const NotFound = () => {
           </div>
         </div>
       </div>
-      <div className="flex w-[45em] flex-col max-md:w-full">
+      <div className="flex min-md-h-screen justify-center w-[45em] flex-col max-md:w-full">
         <div className="flex flex-col items-center">
           <div className="w-[25em] max-lg:w-full max-md:hidden">
-            <p className="mb-16 mt-[150px] text-[32px] font-medium leading-10  max-lg:text-center max-lg:text-[28px]">
+            <p className="mb-16 md-[150px] text-[32px] font-medium leading-10  max-lg:text-center max-lg:text-[28px]">
               Que tal acessar alguma dessas opções?
             </p>
           </div>
