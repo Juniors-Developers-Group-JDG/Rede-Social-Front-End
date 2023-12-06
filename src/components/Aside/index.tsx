@@ -10,6 +10,7 @@ export function Aside() {
 
   const handleSignOut = async () => {
     await deleteCookie('token');
+    await deleteCookie('id');
 
     push('/sign-in');
   };

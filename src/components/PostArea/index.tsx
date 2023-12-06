@@ -1,8 +1,10 @@
 'use client';
 
-import { useState, useContext } from 'react';
+import { useContext, useState } from 'react';
 
+import { getCookie } from '@/app/actions';
 import { toastsContext } from '@/contexts/toasts';
+import { usePost } from '@/hooks/usePost';
 
 import { Code, ImageSquare } from '../../components/PhosphorIcons';
 import AutosizeTextarea from './TextArea';
@@ -10,6 +12,7 @@ import AutosizeTextarea from './TextArea';
 export function PostArea() {
   const context = useContext(toastsContext);
   const [postText, setPostText] = useState('');
+  const { refetch } = usePost();
 
   function handleAlert() {
     alert('Aguarde novas funcionalidades em futuras versoes');
@@ -19,24 +22,23 @@ export function PostArea() {
     if (!postText) {
       return;
     }
+
+    const user_id = await getCookie('id');
+
     const postData = {
+      title: 'title',
       content: postText,
-      midia: 'string',
-      user_id: '42230888-d4cc-40cb-b2f1-ef74836b2af0',
-      likes: 0,
+      user_id,
     };
 
     try {
-      const response = await fetch(
-        'https://social-media-back-end.up.railway.app/posts',
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(postData),
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posts`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
         },
-      );
+        body: JSON.stringify(postData),
+      });
 
       if (response.ok) {
         setPostText('');
@@ -47,9 +49,7 @@ export function PostArea() {
           closeButton: true,
           content: 'Parabéns por postar',
         });
-        setTimeout(() => {
-          window.location.reload();
-        }, 5000);
+        await refetch();
       } else {
         context.addToast({
           title: 'Erro ao enviar o post!',

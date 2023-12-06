@@ -1,25 +1,15 @@
 import { formatDistanceToNow } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
-import Image from 'next/image';
 
-import userImg from '../../assets/avatar_placeholder.svg';
 import { ChatCircle, Circle, Heart } from '../../components/PhosphorIcons';
 
 interface PostProps {
   content: React.ReactNode;
   timePostedUtcTimestamp: number;
-  author: {
-    avatarUrl?: string;
-    name: string;
-    handle: string;
-  };
+  userId: string;
 }
 
-export function Post({
-  content,
-  author: { avatarUrl, handle, name },
-  timePostedUtcTimestamp,
-}: PostProps) {
+export function Post({ content, timePostedUtcTimestamp, userId }: PostProps) {
   const timePostedDistanceToNow = formatDistanceToNow(
     new Date(timePostedUtcTimestamp),
     { locale: ptBR, addSuffix: true },
@@ -31,22 +21,12 @@ export function Post({
 
   return (
     <section className="flex h-fit w-full rounded-md bg-black-900 px-7 py-4 lg:w-[40vw] lg:border-none">
-      <Image
-        className="mr-4 h-8 w-8 rounded-full lg:h-12 lg:w-12"
-        src={avatarUrl ?? userImg}
-        width={50}
-        height={50}
-        alt="Avatar do autor"
-      />
-
       <div className="mt-3 flex flex-1 flex-col">
         <div className="flex w-full justify-between">
           <div className="flex flex-col">
-            <div className="flex gap-1">
-              <p className="text-base font-medium leading-5">{name}</p>
-              <span className="flex self-center text-xs font-medium leading-4">
-                {handle}
-              </span>
+            <div className="flex items-end gap-1">
+              <span className="leading-none">Por</span>
+              <p className="text-base font-medium leading-none">{userId}</p>
             </div>
           </div>
 

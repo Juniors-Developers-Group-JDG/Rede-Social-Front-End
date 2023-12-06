@@ -107,6 +107,7 @@ const SignUp = () => {
       const res = await loginNewUser.json();
 
       await createCookie('token', res.token);
+      await createCookie('id', res.user.id);
 
       push('/feed');
     } catch (error) {

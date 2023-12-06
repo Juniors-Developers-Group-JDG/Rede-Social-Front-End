@@ -3,19 +3,23 @@
 import { Post } from '@/components/Post';
 import { usePost } from '@/hooks/usePost';
 
-export default async function Feed() {
-  const { posts } = usePost();
+export default function Feed() {
+  const { posts, isLoading } = usePost();
 
   return (
     <>
-      {posts.map(({ id, content, created_at, user: { name, email } }) => (
-        <Post
-          key={id}
-          author={{ handle: email, name }}
-          content={<p>{content}</p>}
-          timePostedUtcTimestamp={Date.parse(created_at)}
-        />
-      ))}
+      {isLoading ? (
+        <p>Carregando os posts...</p>
+      ) : (
+        posts.map(({ id, content, created_at, user_id }) => (
+          <Post
+            key={id}
+            content={<p>{content}</p>}
+            userId={user_id}
+            timePostedUtcTimestamp={Date.parse(created_at)}
+          />
+        ))
+      )}
     </>
   );
 }
