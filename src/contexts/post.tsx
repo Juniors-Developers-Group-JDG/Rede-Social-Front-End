@@ -34,17 +34,14 @@ export function PostProvider({ children }: PostProviderProps) {
     const postQueryLowerCase = postQuery.toLowerCase();
 
     const filtered = originalPosts.filter(post => {
-      return (
-        post.title.includes(postQueryLowerCase) ||
-        post.content.includes(postQueryLowerCase)
-      );
+      return post.content.toLowerCase().includes(postQueryLowerCase);
     });
 
     return filtered;
   }, [originalPosts, postQuery]);
 
   const posts = useMemo(
-    () => (postQuery ? filteredPosts : originalPosts),
+    () => (postQuery.length > 0 ? filteredPosts : originalPosts),
     [postQuery, filteredPosts, originalPosts],
   );
 
