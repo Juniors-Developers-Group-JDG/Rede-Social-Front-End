@@ -1,6 +1,13 @@
 'use client';
 
-import { ReactNode, createContext, useEffect, useMemo, useState } from 'react';
+import {
+  ReactNode,
+  createContext,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react';
 
 import { useToasts } from '@/hooks/useToast';
 import { Post } from '@/types/Post';
@@ -9,6 +16,7 @@ interface postContextData {
   posts: Post[];
   setPostQuery: React.Dispatch<React.SetStateAction<string>>;
   isLoading: boolean;
+  refetch: () => Promise<void>;
 }
 
 export const postContext = createContext<postContextData>(
@@ -45,28 +53,32 @@ export function PostProvider({ children }: PostProviderProps) {
     [postQuery, filteredPosts, originalPosts],
   );
 
-  useEffect(() => {
-    fetch(`${process.env.NEXT_PUBLIC_API_URL}/posts`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then(res =>
-        res.json().then(data => {
-          setOriginalPosts(data);
-          setIsLoading(false);
-        }),
-      )
-      .catch(err => {
-        addToast({
-          title: 'Erro ao carregar os posts!',
-          type: 'error',
-        });
-        console.error({ err });
-        setIsLoading(false);
+  const fetchPost = useCallback(async () => {
+    try {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posts`, {
+        method: 'GET',
       });
+
+      const posts = await res.json();
+
+      setOriginalPosts(posts);
+
+      setIsLoading(false);
+    } catch (err) {
+      addToast({
+        title: 'Erro ao carregar os posts!',
+        type: 'error',
+      });
+
+      console.error({ err });
+
+      setIsLoading(false);
+    }
   }, [addToast]);
+
+  useEffect(() => {
+    fetchPost();
+  }, [fetchPost]);
 
   return (
     <postContext.Provider
@@ -74,6 +86,7 @@ export function PostProvider({ children }: PostProviderProps) {
         isLoading,
         posts,
         setPostQuery,
+        refetch: fetchPost,
       }}
     >
       {children}
