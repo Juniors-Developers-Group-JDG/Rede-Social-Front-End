@@ -17,7 +17,6 @@ export const createCookie: CreateCookie = async (
 ) => {
   const cookieFullName = `${appName}.${key}`; // Junção do nome da aplicação com a "chave" passada para a função de criar cookie
 
-  // @ts-ignore
   cookies().set(cookieFullName, value, {
     maxAge: maxAgeInMs,
   }); // Criação do cookie a partir do method set() da classe cookies do next/headers
@@ -28,7 +27,6 @@ type DeleteCookie = (key: string) => Promise<void>;
 export const deleteCookie: DeleteCookie = async key => {
   const cookieFullName = `${appName}.${key}`; // Junção do nome da aplicação com a "chave" passada para a função de criar cookie
 
-  // @ts-ignore
   cookies().set(cookieFullName, '', {
     maxAge: 0,
   }); // Delete do cookie a partir do method set() da classe cookies do next/headers com maxAge de 0

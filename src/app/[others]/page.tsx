@@ -37,10 +37,10 @@ const NotFound = () => {
           </div>
         </div>
       </div>
-      <div className="flex min-md-h-screen justify-center w-[45em] flex-col max-md:w-full">
+      <div className="min-md-h-screen flex w-[45em] flex-col justify-center max-md:w-full">
         <div className="flex flex-col items-center">
           <div className="w-[25em] max-lg:w-full max-md:hidden">
-            <p className="mb-16 md-[150px] text-[32px] font-medium leading-10  max-lg:text-center max-lg:text-[28px]">
+            <p className="md-[150px] mb-16 text-[32px] font-medium leading-10  max-lg:text-center max-lg:text-[28px]">
               Que tal acessar alguma dessas opções?
             </p>
           </div>

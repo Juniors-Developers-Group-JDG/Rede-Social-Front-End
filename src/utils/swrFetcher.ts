@@ -3,10 +3,10 @@ export type FetcherArgs = {
   init?: RequestInit | undefined;
 } | null;
 
-export function fetcher<Response = any>(
+export function fetcher<Response = unknown | undefined>(
   args: FetcherArgs,
 ): typeof args extends null ? undefined : Promise<Response> {
-  if (args === null) return;
+  if (args === null) return new Promise(pro => pro);
 
   const { path, init } = args;
 

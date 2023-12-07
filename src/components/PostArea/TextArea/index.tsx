@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 
 interface AutosizeTextareaProps {
   setPostText: (text: string) => void;
@@ -34,7 +34,7 @@ function AutosizeTextarea({ setPostText, value }: AutosizeTextareaProps) {
         }
       });
     };
-  }, []);
+  }, [setPostText]);
 
   return (
     <textarea
