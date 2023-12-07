@@ -21,7 +21,7 @@ export default async function InnerLayout({ children }: InnerLayoutProps) {
     <div className="flex max-h-screen min-h-screen flex-col overflow-y-hidden">
       <PostProvider>
         <Header />
-        <div className="flex flex-1 items-stretch lg:overflow-y-hidden">
+        <div className="flex flex-1 items-stretch overflow-y-hidden">
           <Aside />
           {children}
         </div>
