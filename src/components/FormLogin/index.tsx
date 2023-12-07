@@ -5,8 +5,7 @@ import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
 import { createCookie } from '@/app/actions';
-import { GoogleLogo, Password, User } from '@/components/PhosphorIcons';
-import useGoogleLogin from '@/hooks/useGoogleLogin';
+import { Password, User } from '@/components/PhosphorIcons';
 import { useToasts } from '@/hooks/useToast';
 
 import { Button } from '../Button';
@@ -18,10 +17,6 @@ export const FormLogin = () => {
 
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
-  const [isLoggingInWithGoogle, setIsLoggingInWithGoogle] =
-    useState<boolean>(false);
-
-  const { googleLogin } = useGoogleLogin();
 
   const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);
@@ -33,11 +28,6 @@ export const FormLogin = () => {
 
   async function handleFormSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-
-    if (isLoggingInWithGoogle) {
-      googleLogin();
-      return;
-    }
 
     if (!email || !password) {
       addToast({
@@ -94,11 +84,6 @@ export const FormLogin = () => {
     }
   }
 
-  const handleGoogleLogin = async () => {
-    setIsLoggingInWithGoogle(true);
-    await googleLogin();
-  };
-
   return (
     <div className="flex h-screen w-full items-center justify-center px-8 md:flex-[2]">
       <form
@@ -130,19 +115,6 @@ export const FormLogin = () => {
         </div>
 
         <Button>Entrar</Button>
-
-        <div className="my-3 inline-flex w-full items-center justify-center">
-          <hr className="my-8 h-px w-full border-0 bg-blue-500"></hr>
-          <span className="mx-2 text-sm">ou</span>
-          <hr className="my-8 h-px w-full border-0 bg-blue-500"></hr>
-        </div>
-
-        <Button
-          icon={<GoogleLogo className="h-5 w-5" weight="bold" />}
-          onClick={handleGoogleLogin}
-        >
-          Entrar com o Google
-        </Button>
       </form>
     </div>
   );
