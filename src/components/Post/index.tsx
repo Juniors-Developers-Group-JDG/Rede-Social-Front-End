@@ -24,10 +24,10 @@ export function Post({ content, timePostedUtcTimestamp, userId }: PostProps) {
       <div className="mt-3 flex flex-1 flex-col">
         <div className="flex w-full justify-between">
           <div className="flex flex-col">
-            <div className="flex items-end gap-1">
-              <span className="leading-none">Por</span>
-              <p className="text-base font-medium leading-none">{userId}</p>
-            </div>
+            <p className="text-base font-medium leading-none">
+              <span className="mr-1 font-normal leading-none">Por</span>
+              {userId}
+            </p>
           </div>
 
           <div className="flex h-fit items-center gap-2">
