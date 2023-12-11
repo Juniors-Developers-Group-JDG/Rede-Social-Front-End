@@ -67,8 +67,7 @@ export default function ForgotPage() {
             Esqueceu a sua senha?
           </h1>
           <p className="mb-4 text-center text-xs md:text-2xl">
-            Insira o seu nome de usuário ou email para enviarmos o link de
-            redefinição de senha.
+            Insira o seu email para enviarmos o link de redefinição de senha.
           </p>
           <Input
             type="email"
