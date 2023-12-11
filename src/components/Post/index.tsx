@@ -6,10 +6,10 @@ import { ChatCircle, Circle, Heart } from '../../components/PhosphorIcons';
 interface PostProps {
   content: React.ReactNode;
   timePostedUtcTimestamp: number;
-  userId: string;
+  userName: string;
 }
 
-export function Post({ content, timePostedUtcTimestamp, userId }: PostProps) {
+export function Post({ content, timePostedUtcTimestamp, userName }: PostProps) {
   const timePostedDistanceToNow = formatDistanceToNow(
     new Date(timePostedUtcTimestamp),
     { locale: ptBR, addSuffix: true },
@@ -24,10 +24,7 @@ export function Post({ content, timePostedUtcTimestamp, userId }: PostProps) {
       <div className="mt-3 flex flex-1 flex-col">
         <div className="flex w-full justify-between">
           <div className="flex flex-col">
-            <p className="text-base font-medium leading-none">
-              <span className="mr-1 font-normal leading-none">Por</span>
-              {userId}
-            </p>
+            <p className="text-base font-medium leading-none">{userName}</p>
           </div>
 
           <div className="flex h-fit items-center gap-2">

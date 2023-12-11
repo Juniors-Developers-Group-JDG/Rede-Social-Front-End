@@ -11,11 +11,11 @@ export default function Feed() {
       {isLoading ? (
         <p>Carregando os posts...</p>
       ) : (
-        posts.map(({ id, content, created_at, user_id }) => (
+        posts.map(({ id, content, created_at, user: { name } }) => (
           <Post
             key={id}
             content={<p>{content}</p>}
-            userId={user_id}
+            userName={name}
             timePostedUtcTimestamp={Date.parse(created_at)}
           />
         ))
